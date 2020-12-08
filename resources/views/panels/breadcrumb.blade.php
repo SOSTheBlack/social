@@ -1,5 +1,6 @@
 @if($configData['mainLayoutType'] === 'vertical-modern-menu')
 {{-- vertical-modern-menu breadcrumb --}}
+@section('title','Blank Page')
 <div class="breadcrumbs-dark pb-0 pt-4" id="breadcrumbs-wrapper">
   <!-- Search for small screen-->
   <div class="container">

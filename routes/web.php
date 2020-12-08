@@ -24,5 +24,4 @@ Route::get('lang/{locale}', [LanguageController::class, 'swap']);
 
 Auth::routes(['verify' => true]);
 
-
-Route::get('/test', BlankPage::class);
+Route::get('/blank-page', BlankPage::class);
