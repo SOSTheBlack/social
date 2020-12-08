@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Components\BlankPage;
 use App\Http\Controllers\LanguageController;
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +15,14 @@ use App\Http\Controllers\LanguageController;
 
 
 // Page Route
-Route::get('/', 'PageController@blankPage');
-Route::get('/page-blank', 'PageController@blankPage');
-Route::get('/page-collapse', 'PageController@collapsePage');
+Route::get('/', 'App\Http\Controllers\PageController@blankPage');
+Route::get('/page-blank', 'App\Http\Controllers\PageController@blankPage');
+Route::get('/page-collapse', 'App\Http\Controllers\PageController@collapsePage');
 
 // locale route
 Route::get('lang/{locale}', [LanguageController::class, 'swap']);
 
 Auth::routes(['verify' => true]);
+
+
+Route::get('/test', BlankPage::class);

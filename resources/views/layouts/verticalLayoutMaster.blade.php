@@ -27,8 +27,6 @@
       </div>
       @endif
       @endif
-
-
       @if($configData["pageHeader"] === true && isset($breadcrumbs))
       {{--  breadcrumb --}}
       @include('panels.breadcrumb')
@@ -36,7 +34,7 @@
       <div class="col s12">
         <div class="container">
           {{-- main page content --}}
-          @yield('content')
+          {{--@yield('content')--}}
           {{-- right sidebar --}}
           @include('pages.sidebar.right-sidebar')
         </div>

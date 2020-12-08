@@ -8,18 +8,6 @@
 // confiData variable layoutClasses array in Helper.php file.
 $configData = Helper::applClasses();
 @endphp
-<!--
-Template Name: Materialize - Material Design Admin Template
-Author: PixInvent
-Website: http://www.pixinvent.com/
-Contact: hello@pixinvent.com
-Follow: www.twitter.com/pixinvents
-Like: www.facebook.com/pixinvents
-Purchase: https://themeforest.net/item/materialize-material-design-admin-template/11446068?ref=pixinvent
-Renew Support: https://themeforest.net/item/materialize-material-design-admin-template/11446068?ref=pixinvent
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
-
--->
 <html class="loading"
   lang="@if(session()->has('locale')){{session()->get('locale')}}@else{{$configData['defaultLanguage']}}@endif"
   data-textdirection="{{ env('MIX_CONTENT_DIRECTION') === 'rtl' ? 'rtl' : 'ltr' }}">
@@ -36,6 +24,7 @@ License: You must have a valid license purchased only from themeforest(the above
   <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon/favicon-32x32.png">
 
   {{-- Include core + vendor Styles --}}
+  @livewireStyles
   @include('panels.styles')
 
 </head>
@@ -50,5 +39,5 @@ License: You must have a valid license purchased only from themeforest(the above
 {{-- if mainLaoutType is empty or not set then its print below line  --}}
 <h1>{{'mainLayoutType Option is empty in config custom.php file.'}}</h1>
 @endif
-
+@livewireScripts
 </html>
