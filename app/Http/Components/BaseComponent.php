@@ -12,7 +12,12 @@ use Livewire\Component;
  */
 abstract class BaseComponent extends Component
 {
-    public $pageTitle;
+    /**
+     * Title of page.
+     *
+     * @var string
+     */
+    protected $pageTitle;
 
     /**
      * Breadcrumbs of content.
@@ -31,4 +36,28 @@ abstract class BaseComponent extends Component
         view()->share('pageTitle', $this->pageTitle);
         view()->share('breadcrumbs', $this->breadcrumbs);
     }
+
+    /**
+     * @param string $pageTitle
+     *
+     * @return BaseComponent
+     */
+    public function setPageTitle(string $pageTitle): BaseComponent
+    {
+        $this->pageTitle = $pageTitle;
+
+        return $this;
+}
+
+    /**
+     * @param array $breadcrumbs
+     *
+     * @return BaseComponent
+     */
+    public function setBreadcrumbs(array $breadcrumbs): BaseComponent
+    {
+        $this->breadcrumbs = $breadcrumbs;
+
+        return $this;
+}
 }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
+use App\Entities\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
@@ -11,24 +11,24 @@ class AuthController extends Controller
     //register api
     public function register(Request $request){
 
-        $validator = Validator::make($request->all(), [ 
-            'name' => 'required', 
-            'email' => 'required|email', 
-            'password' => 'required', 
-            'c_password' => 'required|same:password', 
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'c_password' => 'required|same:password',
         ]);
 
         if($validator->fails()){
           return response()->json(['error'=>$validator->errors()],401);
         }
 
-      $input = $request->all(); 
-        $input['password'] = bcrypt($input['password']); 
-        $user = User::create($input); 
-        $success['token'] =  $user->createToken('Personal Access Token')->accessToken; 
+      $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
+        $user = User::create($input);
+        $success['token'] =  $user->createToken('Personal Access Token')->accessToken;
         $success['name'] =  $user->name;
       return response()->json(['success'=>$success], $this->successStatus);
-    } 
+    }
 
     // login api
     public function login(){
@@ -46,7 +46,7 @@ class AuthController extends Controller
     // user detail api
     public function user(){
       $user = Auth::user();
-      return response()->json(['success' => $user], $this->successStatus); 
+      return response()->json(['success' => $user], $this->successStatus);
     }
 
     // user logout api
@@ -54,5 +54,5 @@ class AuthController extends Controller
       $user = Auth::user();
       return response()->json(['success'=>'Successfully Logout!']);
     }
-   
+
 }

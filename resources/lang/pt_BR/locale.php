@@ -137,4 +137,5 @@ return[
     "Profile" => "Perfil",
     "Lock" => "Bloquear",
     "Logout" => "Sair",
+    "Sing In" => "Entrar"
 ];
