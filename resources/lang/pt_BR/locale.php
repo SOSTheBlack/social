@@ -102,7 +102,7 @@ return[
     "Third level"=> "Terceiro nivel",
     "Changelog"=> "Changelog",
     "Documentation"=> "Documentação",
-    "Support"=> "Apoio",
+    "Support"=> "Suporte",
     "Chart"=> "Gráfico",
     "Apps"=> "Apps",
     "Basic Buttons"=> "Botões básicos",
@@ -132,6 +132,9 @@ return[
     "Second level 3"=> "Segundo nível 3",
     "Child 1"=> "Criança 1",
     "Child 2"=> "Criança 2",
-    "Page Collapse"=> "Recolher página"
+    "Page Collapse"=> "Recolher página",
+    "Explorer" => "explorer",
+    "Profile" => "Perfil",
+    "Lock" => "Bloquear",
+    "Logout" => "Sair",
 ];
-?>

@@ -132,6 +132,5 @@ return [
     "Second level 3"=> "Second level 3",
     "Child 1"=> "Child 1",
     "Child 2"=> "Child 2",
-    "Page Collapse"=> "Page Collapse"
+    "Page Collapse"=> "Page Collapse",
 ];
-?>
