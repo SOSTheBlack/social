@@ -26,4 +26,3 @@ Auth::routes(['verify' => true]);
 
 Route::get('/blank-page', BlankPage::class);
 
-Route::get('auth/sing-in', ['uses' => \App\Http\Components\Auth\Login::class, 'as' =>  'auth.sing-in']);

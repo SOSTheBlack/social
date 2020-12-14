@@ -5,20 +5,21 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
+/**
+ * Class LoginController.
+ *
+ * This controller handles authenticating users for the application and
+ * redirecting them to your home screen. The controller uses a trait
+ * to conveniently provide its functionality to your applications.
+ *
+ * @package App\Http\Controllers\Auth
+ */
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
     use AuthenticatesUsers;
 
     /**
@@ -38,19 +39,26 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    // Login
-    public function showLoginForm(){
-       $pageConfigs = ['bodyCustomClass' => 'login-bg', 'isCustomizer' => false];
-  
+    /**
+     * Show the application's login form.
+     *
+     * @return View
+     */
+    public function showLoginForm()
+    {
+        $pageConfigs = ['bodyCustomClass' => 'login-bg', 'isCustomizer' => false];
+
         return view('/auth/login', [
-            'pageConfigs' => $pageConfigs
+            'pageConfigs' => $pageConfigs,
         ]);
-      }
-      /**
+    }
+
+    /**
      * Log the user out of the application.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  Request $request
+     *
+     * @return Response
      */
     public function logout(Request $request)
     {

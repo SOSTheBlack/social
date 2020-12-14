@@ -320,7 +320,7 @@ $(function () {
   }); // Collapsible inside page not for sidebar
 
   var allCollapse = document.querySelectorAll(".collapsible");
-  M.Collapsible.init(allCollapse); // Collapsible expandable    
+  M.Collapsible.init(allCollapse); // Collapsible expandable
 
   var elem = document.querySelector('.collapsible.expandable');
   var instance = M.Collapsible.init(elem, {
@@ -433,7 +433,7 @@ $(function () {
 
   $(".slide-out-right-sidenav-chat").sidenav({
     edge: "right"
-  }); // check for if touch device 
+  }); // check for if touch device
 
   if (!is_touch_device()) {
     // Right side slide-out (Chat, settings & timeline)
@@ -466,7 +466,7 @@ $(function () {
       var ps_slideout_chat = new PerfectScrollbar(".chat-body .collection", {
         suppressScrollX: true
       });
-    } // for horizonatal nav scroll 
+    } // for horizonatal nav scroll
 
 
     if ($("#ul-horizontal-nav").length > 0) {
@@ -556,16 +556,18 @@ $(function () {
     $this.addClass("selected");
     var selectedFlag = $this.find(".flag-icon").attr("class");
     $(".translation-button .flag-icon").removeClass().addClass(selectedFlag);
-  }); // set language flag icon as 
+  }); // set language flag icon as
 
   var language = $('html')[0].lang;
 
   if (language !== null) {
-    // get the selected flag class 
-    var selectedFlag = $(".dropdown-language .dropdown-item").find("a[data-language=" + language + "] .flag-icon").attr("class"); // set the class in button 
+    // get the selected flag class
+    var selectedFlag = $(".dropdown-language .dropdown-item").find("a[data-language=" + language + "] .flag-icon").attr("class"); // set the class in button
+
+    console.log(selectedFlag);
 
     $(".translation-button .flag-icon").removeClass().addClass(selectedFlag);
-  } // Horizontal-nav active parent  
+  } // Horizontal-nav active parent
 
 
   if ($("#ul-horizontal-nav li.active").length > 0) {
