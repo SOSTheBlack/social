@@ -48,8 +48,9 @@ class LoginController extends Controller
     {
         $pageConfigs = ['bodyCustomClass' => 'login-bg', 'isCustomizer' => false];
 
-        return view('/auth/login', [
+        return view('auth.login', [
             'pageConfigs' => $pageConfigs,
+            'pageTitle' => trans('locale.auth.login.page-title')
         ]);
     }
 
@@ -66,6 +67,6 @@ class LoginController extends Controller
 
         $request->session()->invalidate();
 
-        return $this->loggedOut($request) ?: redirect('/login');
+        return $this->loggedOut($request) ?: redirect(route('login'));
     }
 }
