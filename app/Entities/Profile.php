@@ -2,10 +2,14 @@
 
 namespace App\Entities;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Entities\Profile
@@ -13,13 +17,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $id
  * @property int $user_id
  * @property string $avatar
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \App\Entities\User|null $user
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+ * @property-read User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newQuery()
- * @method static \Illuminate\Database\Query\Builder|Profile onlyTrashed()
+ * @method static Builder|Profile onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Profile query()
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereAvatar($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereCreatedAt($value)
@@ -27,21 +31,31 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereUserId($value)
- * @method static \Illuminate\Database\Query\Builder|Profile withTrashed()
- * @method static \Illuminate\Database\Query\Builder|Profile withoutTrashed()
- * @mixin \Eloquent
+ * @method static Builder|Profile withTrashed()
+ * @method static Builder|Profile withoutTrashed()
+ * @mixin Eloquent
  */
 class Profile extends Model
 {
     use HasFactory, SoftDeletes;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable
+        = [
+           'user_id', 'avatar'
+        ];
+
+    /**
      * Define a one-to-one relationship.
      *
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function user(): HasOne
+    public function user(): BelongsTo
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 }

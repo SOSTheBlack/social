@@ -3,8 +3,7 @@
 namespace Tests\Feature\Auth;
 
 use App\Entities\User;
-use Database\Factories\ProfileFactory;
-use Database\Factories\UserFactory;
+use Database\Factories\Entities\UserFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -78,10 +77,6 @@ class LoginTest extends TestCase
     public function testUserAuthenticatedExecuteLogout()
     {
         $this->actingAs($this->user);
-
-        dd(
-            (new ProfileFactory)->create()
-        );
 
         $this->get(route('auth.logout'))
             ->assertStatus(302)

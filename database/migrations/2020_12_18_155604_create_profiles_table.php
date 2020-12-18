@@ -19,7 +19,7 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->unsignedBigInteger('id');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('avatar')->nullable()->default(asset('images/avatar/avatar-0.png'));
+            $table->string('avatar')->default(asset('images/avatar/avatar-0.png'));
             $table->timestamps();
             $table->softDeletes();
         });

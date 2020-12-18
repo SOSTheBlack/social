@@ -1,8 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Entities;
 
 use App\Entities\Profile;
+use App\Entities\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -28,7 +29,8 @@ class ProfileFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => $this->user->id
+            'user_id' => User::factory(),
+             'avatar' => 'ddd'
         ];
     }
 }

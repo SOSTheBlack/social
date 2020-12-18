@@ -152,8 +152,20 @@ return [
             'login' => 'Acessar',
             'register-now' => 'Registrar-se agora!',
             'forgot-password' => 'Esqueceu sua senha?'
+        ],
+        'register' => [
+            'page-title' => 'Cadastra-se',
+            'form-title' => 'Área Restrita',
+            'title' => 'Cadastrar',
+            'subtile' => 'Cadastre-se para melhor performa-se em suas redes sociais',
+            'full-name' => 'Nome Completo',
+            'email' => 'E-mail',
+            'password' => 'Senha',
+            'password-again' => 'Confirmar Senha',
+            'have-account' => 'Já tem uma conta? Conecte-se'
         ]
     ],
+
 
     'dashboard' => [
         'home' => [

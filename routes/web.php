@@ -4,6 +4,7 @@ use App\Http\Components\BlankPage;
 use App\Http\Components\Dashboard\Home;
 use App\Http\Controllers\LanguageController;
 
+
 Auth::routes(['verify' => true]);
 Route::get('logout')->uses('App\Http\Controllers\Auth\LoginController@logout')->name('auth.logout');
 
