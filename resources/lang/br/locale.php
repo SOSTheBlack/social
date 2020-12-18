@@ -140,6 +140,9 @@ return [
     "Sing In"             => "Entrar",
     "Email" => "E-mail",
     "Password" => "Senha",
+    "All rights reserved" => "Todos os direitos reservados",
+    "Design by" => "Design",
+    "Developed by" => "Engenheiro",
 
     'auth' => [
         'login' => [
