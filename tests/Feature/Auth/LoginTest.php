@@ -43,4 +43,25 @@ class LoginTest extends TestCase
             ->assertStatus(302)
             ->assertRedirect(route('home'));
     }
+
+    public function testIfGuestRedirectToLoginAccessRestrictPage()
+    {
+        $response = $this->get(route('home'));
+
+        $response
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
+    }
+
+    public function testIfAuthenticatedRedirectToHome()
+    {
+        $user = UserFactory::new()->create();
+        $this->actingAs($user);
+
+        $response = $this->get(route('login'));
+
+        $response
+            ->assertStatus(302)
+            ->assertRedirect(route('home'));
+    }
 }

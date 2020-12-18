@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Components\BlankPage;
+use App\Http\Components\Dashboard;
 use App\Http\Controllers\LanguageController;
 
 Auth::routes(['verify' => true]);
@@ -12,7 +13,6 @@ Route::group(['middleware' => 'guest'], function() {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', 'App\Http\Controllers\PageController@blankPage')->name('home');
-    Route::get('/dashboard', 'App\Http\Controllers\PageController@blankPage')->name('dashboard');
+    Route::get('/')->uses(Dashboard::class)->name('home');
     Route::get('/blank-page', BlankPage::class)->name('blank');
 });
