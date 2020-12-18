@@ -17,14 +17,14 @@ abstract class BaseComponent extends Component
      *
      * @var string
      */
-    protected $pageTitle;
+    protected string $pageTitle;
 
     /**
      * Breadcrumbs of content.
      *
      * @var array
      */
-    protected $breadcrumbs = [];
+    protected array $breadcrumbs = [];
 
     /**
      * Render your view.
@@ -38,7 +38,7 @@ abstract class BaseComponent extends Component
     }
 
     /**
-     * @param string $pageTitle
+     * @param  string  $pageTitle
      *
      * @return BaseComponent
      */
@@ -47,10 +47,10 @@ abstract class BaseComponent extends Component
         $this->pageTitle = $pageTitle;
 
         return $this;
-}
+    }
 
     /**
-     * @param array $breadcrumbs
+     * @param  array  $breadcrumbs
      *
      * @return BaseComponent
      */
@@ -59,5 +59,12 @@ abstract class BaseComponent extends Component
         $this->breadcrumbs = $breadcrumbs;
 
         return $this;
-}
+    }
+
+    public function pushBreadcrumbs(string $name, string $link): void
+    {
+        if (empty($this->breadcrumbs)) {
+//            $this->breadcrumbs[] = ['name' => env('APP_NAME'), 'link']
+        }
+    }
 }

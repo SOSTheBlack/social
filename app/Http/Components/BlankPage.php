@@ -11,18 +11,24 @@ use Illuminate\View\View;
  */
 class BlankPage extends BaseComponent
 {
-    public $pageTitle = 'dddd';
+    /**
+     * Title of page.
+     *
+     * @var string
+     */
+    public string $pageTitle = 'Blank Page';
 
     /**
      * Breadcrumbs of content.
      *
      * @var array
      */
-    protected $breadcrumbs = [
-        ['link' => "modern", 'name' => "Home"],
-        ['link' => "javascript:void(0)", 'name' => "Pages"],
-        ['name' => "Blank Page"],
-    ];
+    protected array $breadcrumbs
+        = [
+            ['link' => "modern", 'name' => "Home"],
+            ['link' => "javascript:void(0)", 'name' => "Pages"],
+            ['name' => "Blank Page"],
+        ];
 
     /**
      * @return View

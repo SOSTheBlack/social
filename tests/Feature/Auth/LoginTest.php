@@ -41,12 +41,12 @@ class LoginTest extends TestCase
         $response = $this->post(route('login'), ['login' => $user->email, 'password' => 'secret']);
         $response
             ->assertStatus(302)
-            ->assertRedirect(route('home'));
+            ->assertRedirect(route('dashboard.home'));
     }
 
     public function testIfGuestRedirectToLoginAccessRestrictPage()
     {
-        $response = $this->get(route('home'));
+        $response = $this->get(route('dashboard.home'));
 
         $response
             ->assertStatus(302)
@@ -62,6 +62,6 @@ class LoginTest extends TestCase
 
         $response
             ->assertStatus(302)
-            ->assertRedirect(route('home'));
+            ->assertRedirect(route('dashboard.home'));
     }
 }

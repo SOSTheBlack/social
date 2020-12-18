@@ -150,5 +150,12 @@ return [
             'register-now' => 'Registrar-se agora!',
             'forgot-password' => 'Esqueceu sua senha?'
         ]
+    ],
+
+    'dashboard' => [
+        'home' => [
+            'page-title' => 'Dashboard -> Home'
+        ]
     ]
+
 ];
