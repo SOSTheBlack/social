@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'filename'  => '_ide_helper.php',
+    'filename'      => '_ide_helper.php',
 
     /*
     |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ return [
     |
     */
 
-    'include_fluent' => true,
+    'include_fluent' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'write_model_external_builder_methods' => false,
+    'write_model_external_builder_methods' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -111,7 +111,7 @@ return [
     'include_helpers' => false,
 
     'helper_files' => [
-        base_path() . '/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
+        base_path().'/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
     ],
 
     /*
@@ -128,7 +128,7 @@ return [
     */
 
     'model_locations' => [
-        'app',
+        'app/Entities',
     ],
 
     /*
@@ -155,7 +155,7 @@ return [
 
     'extra' => [
         'Eloquent' => ['Illuminate\Database\Eloquent\Builder', 'Illuminate\Database\Query\Builder'],
-        'Session' => ['Illuminate\Session\Store'],
+        'Session'  => ['Illuminate\Session\Store'],
     ],
 
     'magic' => [],
@@ -170,7 +170,7 @@ return [
     |
     */
 
-    'interfaces' => [
+    'interfaces'                  => [
 
     ],
 
@@ -200,7 +200,7 @@ return [
     |  ),
     |
     */
-    'custom_db_types' => [
+    'custom_db_types'             => [
 
     ],
 
@@ -238,7 +238,7 @@ return [
     | Cast the given "real type" to the given "type".
     |
     */
-    'type_overrides' => [
+    'type_overrides'              => [
         'integer' => 'int',
         'boolean' => 'bool',
     ],
@@ -252,7 +252,7 @@ return [
     | magic methods and properties.
     |
     */
-    'include_class_docblocks' => false,
+    'include_class_docblocks'     => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -264,7 +264,7 @@ return [
     | or there is an import (use className) of a given class
     |
     */
-    'force_fqn' => false,
+    'force_fqn'                   => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -276,6 +276,6 @@ return [
     | name of the Relationship, e.g. `'relationName' => RelationShipClass::class`.
     |
     */
-    'additional_relation_types' => [],
+    'additional_relation_types'   => [],
 
 ];

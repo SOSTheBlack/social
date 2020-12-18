@@ -16,6 +16,19 @@ class LoginTest extends TestCase
 {
     use RefreshDatabase;
 
+    /**
+     * New User.
+     *
+     * @var User
+     */
+    private $user;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->user = UserFactory::new()->create();
+    }
+
     public function testViewLoginWithSuccess()
     {
         $response = $this->get(route('login'));
@@ -35,10 +48,7 @@ class LoginTest extends TestCase
 
     public function testLoginWithSuccess()
     {
-        /** @var User $user */
-        $user = UserFactory::new()->create();
-
-        $response = $this->post(route('login'), ['login' => $user->email, 'password' => 'secret']);
+        $response = $this->post(route('login'), ['login' => $this->user->email, 'password' => 'secret']);
         $response
             ->assertStatus(302)
             ->assertRedirect(route('dashboard.home'));
@@ -55,13 +65,25 @@ class LoginTest extends TestCase
 
     public function testIfAuthenticatedRedirectToHome()
     {
-        $user = UserFactory::new()->create();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
 
         $response = $this->get(route('login'));
 
         $response
             ->assertStatus(302)
             ->assertRedirect(route('dashboard.home'));
+    }
+
+    public function testUserAuthenticatedExecuteLogout()
+    {
+        $this->actingAs($this->user);
+
+        $this->get(route('auth.logout'))
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
+
+        $this->get(route('dashboard.home'))
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
     }
 }
