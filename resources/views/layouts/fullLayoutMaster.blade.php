@@ -21,7 +21,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/favicon/favicon-32x32.png')}}">
 
     <!-- Include core + vendor Styles -->
-    @livewireStyles
     @include('panels.styles')
 
 </head>
@@ -41,7 +40,6 @@
     </div>
 </div>
 {{-- vendor scripts and page scripts included --}}
-@livewireScripts
 @include('panels.scripts')
 
 </body>
