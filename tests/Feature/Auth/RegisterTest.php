@@ -4,6 +4,8 @@ namespace Tests\Feature\Auth;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Event;
+use JetBrains\PhpStorm\ArrayShape;
 use Tests\TestCase;
 
 /**
@@ -38,30 +40,37 @@ class RegisterTest extends TestCase
             trans('locale.auth.register.email'),
             trans('locale.auth.register.password'),
             trans('locale.auth.register.password-again'),
-            trans('locale.auth.register.have-account')
+            trans('locale.auth.register.have-account'),
         ]);
 
         $params = [
-            'name' => $this->faker->name,
-            'email' => $this->faker->email,
-            'password' => 'secret',
-            'password-again' => 'secret'
+            'name'           => $this->faker->name,
+            'email'          => $this->faker->email,
+            'password'       => 'secret',
+            'password-again' => 'secret',
         ];
     }
 
     public function testCreateNewAccountWithSuccess()
     {
-        $params = [
-            'name' => $this->faker->name,
-            'email' => $this->faker->email,
-            'password' => 'secret',
-            'password-again' => 'secret'
-        ];
-
-        $response = $this->post(route('register'), $params);
+        $response = $this->post(route('register'), $this->makeToCreateNewUser());
 
         $response
             ->assertStatus(302)
             ->assertRedirect(route('dashboard.home'));
+    }
+
+    /**
+     * @return array
+     */
+    #[ArrayShape(['name' => "string", 'email' => "string", 'password' => "string", 'password-again' => "string"])]
+    private function makeToCreateNewUser(): array
+    {
+        return [
+            'name'           => $this->faker->name,
+            'email'          => $this->faker->email,
+            'password'       => 'secret',
+            'password-again' => 'secret',
+        ];
     }
 }
