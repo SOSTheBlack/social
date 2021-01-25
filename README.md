@@ -18,6 +18,8 @@ mv .env.example .env
 **Step 3**: Run the following command to generate the key (and you can also edit your database credentials here).
 ```bash
 php artisan key:generate
+php artisan migrate
+php artisan db:seed
 php artisan passport:install
 ```
 
