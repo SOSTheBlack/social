@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Auth;
 
+use App\Entities\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Event;
@@ -42,22 +43,22 @@ class RegisterTest extends TestCase
             trans('locale.auth.register.password-again'),
             trans('locale.auth.register.have-account'),
         ]);
-
-        $params = [
-            'name'           => $this->faker->name,
-            'email'          => $this->faker->email,
-            'password'       => 'secret',
-            'password-again' => 'secret',
-        ];
     }
 
     public function testCreateNewAccountWithSuccess()
     {
-        $response = $this->post(route('register'), $this->makeToCreateNewUser());
+        $dataUser = $this->makeToCreateNewUser();
+        dump($dataUser);
+
+        $response = $this->post(route('register'), $dataUser);
 
         $response
             ->assertStatus(302)
             ->assertRedirect(route('dashboard.home'));
+
+        dump(User::all()->toArray());
+
+        $this->assertDatabaseHas('users', ['email' => $dataUser['email']]);
     }
 
     /**

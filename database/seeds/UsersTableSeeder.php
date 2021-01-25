@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Database\Factories\UserFactory;
+use Database\Factories\Entities\UserFactory;
 use Illuminate\Database\Seeder;
 
 /**

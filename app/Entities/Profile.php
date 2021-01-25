@@ -44,10 +44,7 @@ class Profile extends Model
      *
      * @var array
      */
-    protected $fillable
-        = [
-           'user_id', 'avatar'
-        ];
+    protected $fillable = ['user_id', 'avatar'];
 
     /**
      * Define a one-to-one relationship.

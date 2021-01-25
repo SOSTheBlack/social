@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Observers;
+namespace App\Observers\User;
 
 use App\Entities\User;
+use App\Observers\User\Resources\UserCreatedObserver;
 
 /**
  * Class UserObserver
@@ -20,7 +21,9 @@ class UserObserver
      */
     public function created(User $user)
     {
-        dd('aquyu');
+        $createdObserver = new UserCreatedObserver($user);
+
+        $createdObserver->saveGravatarInProfile();
     }
 
     /**

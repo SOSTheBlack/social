@@ -17,7 +17,7 @@ class CreateProfilesTable extends Migration
     public function up(): void
     {
         Schema::create('profiles', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
+            $table->bigIncrements('id');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('avatar')->default(asset('images/avatar/avatar-0.png'));
             $table->timestamps();
