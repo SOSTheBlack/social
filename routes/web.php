@@ -4,18 +4,6 @@ use App\Http\Components\BlankPage;
 use App\Http\Components\Dashboard\Home;
 use App\Http\Controllers\LanguageController;
 
-//dd
-//(
-//    vsprintf('https://ui-avatars.com/api/?name=%s&background=000&color=fff&bold=true', [Str::slug('Jean Cesar Garcia', '+')])
-//);
-
-//$user = (new \Database\Factories\Entities\UserFactory())->create();
-//
-//dd(
-//    $user,
-//    $user->profile
-//);
-
 //dd(
 //    app('gravatar')->get('jeancesargarcia@gmail.com', ['small-secure'])
 //);

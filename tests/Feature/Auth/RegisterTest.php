@@ -48,7 +48,6 @@ class RegisterTest extends TestCase
     public function testCreateNewAccountWithSuccess()
     {
         $dataUser = $this->makeToCreateNewUser();
-        dump($dataUser);
 
         $response = $this->post(route('register'), $dataUser);
 
@@ -56,7 +55,7 @@ class RegisterTest extends TestCase
             ->assertStatus(302)
             ->assertRedirect(route('dashboard.home'));
 
-        dump(User::all()->toArray());
+        dump(User::all()->toArray(), $response->getContent());
 
         $this->assertDatabaseHas('users', ['email' => $dataUser['email']]);
     }

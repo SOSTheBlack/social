@@ -5,6 +5,7 @@ namespace App\Observers\User\Resources;
 use App\Entities\User;
 use Creativeorange\Gravatar\Exceptions\InvalidEmailException;
 use Illuminate\Support\Str;
+use Throwable;
 
 /**
  * Class UserCreatedObserver
@@ -28,7 +29,12 @@ class UserCreatedObserver
         $this->user = $user;
     }
 
-    public function saveGravatarInProfile()
+    /**
+     * Create the avatar for new profile.
+     *
+     * @return void
+     */
+    public function saveGravatarInProfile(): void
     {
         try {
             $gravatar = app('gravatar');
@@ -37,11 +43,12 @@ class UserCreatedObserver
                 throw new InvalidEmailException('email not linked to a gravatar');
             }
 
-            $urlGravatar = $gravatar->get($this->user->email);
+            $avatar = $gravatar->get($this->user->email);
         } catch (InvalidEmailException $invalidEmailException) {
+            $avatar = vsprintf('https://ui-avatars.com/api/?name=%s&format=svg', [Str::slug($this->user->name, '+')]);
+        } catch (Throwable $exception) {
+            $avatar = asset('/images/avatar/avatar-0.png', true);
         } finally {
-            $avatar = $urlGravatar ?? vsprintf('https://ui-avatars.com/api/?name=%s&format=svg', [Str::slug($this->user->name, '+')]);
-
             $this->user->profile()->updateOrCreate([], ['avatar' => $avatar]);
         }
     }
