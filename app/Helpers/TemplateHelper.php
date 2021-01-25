@@ -4,7 +4,7 @@ namespace App\Helpers;
 
 use Config;
 
-class Helper
+class TemplateHelper
 {
     public static function applClasses()
     {

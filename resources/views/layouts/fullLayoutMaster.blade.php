@@ -1,10 +1,10 @@
 {{-- pageConfigs variable pass to Helper's updatePageConfig function to update page configuration  --}}
 @isset($pageConfigs)
-{!! Helper::updatePageConfig($pageConfigs) !!}
+{!! TemplateHelper::updatePageConfig($pageConfigs) !!}
 @endisset
         <!DOCTYPE html>
 @php
-    $configData = Helper::applClasses();
+    $configData = TemplateHelper::applClasses();
 @endphp
 <html class="loading"
       lang="@if(session()->has('locale')){{session()->get('locale')}}@else{{$configData['defaultLanguage']}}@endif"
