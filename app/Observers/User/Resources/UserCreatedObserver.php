@@ -39,7 +39,7 @@ class UserCreatedObserver
         try {
             $gravatar = app('gravatar');
 
-            if (! $gravatar->has($this->user->email)) {
+            if (! $gravatar->exists($this->user->email)) {
                 throw new InvalidEmailException('email not linked to a gravatar');
             }
 
@@ -47,6 +47,7 @@ class UserCreatedObserver
         } catch (InvalidEmailException $invalidEmailException) {
             $avatar = vsprintf('https://ui-avatars.com/api/?name=%s&format=svg', [Str::slug($this->user->name, '+')]);
         } catch (Throwable $exception) {
+            dd($exception);
             $avatar = asset('/images/avatar/avatar-0.png', true);
         } finally {
             $this->user->profile()->updateOrCreate([], ['avatar' => $avatar]);
