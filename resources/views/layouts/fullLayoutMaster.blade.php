@@ -31,10 +31,8 @@
         data-open="click" data-menu="vertical-modern-menu" data-col="1-column">
 <div class="row">
     <div class="col s12">
-        <div class="container">
             <!--  main content -->
             @yield('content')
-        </div>
         {{-- overlay --}}
         <div class="content-overlay"></div>
     </div>
