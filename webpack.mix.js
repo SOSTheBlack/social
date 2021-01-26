@@ -33,8 +33,6 @@ const sassOptions = {
     precision: 5
 };
 
-console.log(process.env.MIX_CONTENT_LAYOUT);
-
 // themes Core stylesheets
 mixAssetsDir('sass/custom/**/!(_)*.scss', (src, dest) => mix.sass(src, dest.replace(/(\\|\/)sass(\\|\/)/, '$1css$2').replace(/\.scss$/, '.css'), sassOptions));
 
@@ -86,13 +84,13 @@ mix.then(() => {
         // exec('./node_modules/rtlcss/bin/rtlcss.js -d -e ".css" ./public/css/ ./public/css/');
     }
 });
-// if (mix.inProduction()) {
-//     mix.version();
-//     mix.webpackConfig({
-//         output: {
-//             publicPath: '/materialize-material-design-admin-template/laravel/demo-1/'
-//         }
-//     });
-//     mix.setResourceRoot("/materialize-material-design-admin-template/laravel/demo-1/");
-// }
+if (mix.inProduction()) {
+    mix.version();
+    mix.webpackConfig({
+        output: {
+            publicPath: '/materialize-material-design-admin-template/laravel/demo-1/'
+        }
+    });
+    mix.setResourceRoot("/materialize-material-design-admin-template/laravel/demo-1/");
+}
 mix.version();

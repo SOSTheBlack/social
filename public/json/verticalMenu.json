@@ -2,6 +2,7 @@
   "menu": [
     {
       "url": "home",
+      "route": "dashboard.home",
       "name": "Dashboard",
       "i18n": "Dashboard",
       "class": "waves-effect waves-cyan",
