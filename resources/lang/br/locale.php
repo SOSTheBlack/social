@@ -143,6 +143,16 @@ return [
     "All rights reserved" => "Todos os direitos reservados",
     "Design by" => "Design",
     "Developed by" => "Engenheiro",
+    "Confirm Password" => 'Resetar Senha',
+    "Please confirm your password before continuing." => "Por favor, confirme sua senha antes de continuar.",
+    "Verify Your Email Address" => "Verifique seu endereço de e-mail",
+    "A fresh verification link has been sent to your email address." => "Um novo link de verificação foi enviado para seu endereço de e-mail.",
+    "Before proceeding, please check your email for a verification link." => "Antes de continuar, verifique seu e-mail para obter um link de verificação.",
+    "If you did not receive the email" => "Se você não recebeu o email",
+    "click here to request another" => "clique aqui para solicitar",
+    "Forgot Your Password" => "Esqueceu sua senha",
+    "email" => 'E-mail',
+    "Password Confirm" => 'Confirmar Senha',
 
     'auth' => [
         'login' => [
