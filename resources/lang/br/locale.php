@@ -163,6 +163,24 @@ return [
             'password' => 'Senha',
             'password-again' => 'Confirmar Senha',
             'have-account' => 'Já tem uma conta? Conecte-se'
+        ],
+        'forgot-password' => [
+            'page-title' => 'Recuperar Senha',
+            'login' => 'Login',
+            'register' => 'Cadastrar-se',
+            'form' => [
+                'title' => 'Recuperar Senha',
+                'subtitle' => 'Informe o seu e-mail de cadastro para criar uma nova senha',
+                'inputs' => [
+                    'email' => 'E-mail',
+                ],
+                'buttons' => [
+                    'submit' => 'Recuperar Senha'
+                ]
+            ],
+        ],
+        'verify' => [
+            'page-title' => 'Verificar Conta',
         ]
     ],
 
