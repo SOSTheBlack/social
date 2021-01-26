@@ -54,7 +54,7 @@
         <li class="bold {{(request()->is($menu->url.'*')) ? 'active' : '' }}">
           <a class="{{$custom_classes}} {{ (request()->is($menu->url.'*')) ? 'active '.$configData['activeMenuColor'] : ''}}"
             @if(!empty($configData['activeMenuColor'])) {{'style=background:none;box-shadow:none;'}} @endif
-            href="@if(($menu->url)==='javascript:void(0)'){{$menu->url}} @else{{url($menu->url)}} @endif"
+            href="@if(isset($menu->route)) {{ route($menu->route) }} @elseif ($menu->url) === 'javascript:void(0)'){{$menu->url}} @else{{url($menu->url)}} @endif"
             {{isset($menu->newTab) ? 'target="_blank"':''}}>
             <i class="material-icons">{{$menu->icon}}</i>
             <span class="menu-title">{{ __('locale.'.$menu->name)}}</span>

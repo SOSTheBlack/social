@@ -9,7 +9,7 @@
       }
       @endphp
     <li class="{{(request()->is($submenu->url.'*')) ? 'active' : '' }}">
-      <a href="@if(isset($submenu->route)) {{ route($submenu->url) }} @elseif ($submenu->url) === 'javascript:void(0)'){{$submenu->url}} @else{{url($submenu->url)}} @endif"
+      <a href="@if(isset($submenu->route)) {{ route($submenu->route) }} @elseif ($submenu->url) === 'javascript:void(0)'){{$submenu->url}} @else{{url($submenu->url)}} @endif"
         class="{{$custom_classes}} {{(request()->is($submenu->url.'*')) ? 'active '.$configData['activeMenuColor'] : '' }}"
         @if(!empty($configData['activeMenuColor'])) {{'style=background:none;box-shadow:none;'}} @endif
         target="{{isset($submenu->newTab) ? '_blank':''}}">
