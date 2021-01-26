@@ -39,4 +39,5 @@ $configData = TemplateHelper::applClasses();
 <h1>{{'mainLayoutType Option is empty in config custom.php file.'}}</h1>
 @endif
 @livewireScripts
+<script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
 </html>
