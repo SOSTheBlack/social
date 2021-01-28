@@ -132,6 +132,7 @@ return [
     "Second level 3"=> "Deuxième niveau 3",
     "Child 1"=> "Enfant 1",
     "Child 2"=> "Enfant 2",
-    "Page Collapse"=> "Effondrement de la page"
+    "Page Collapse"=> "Effondrement de la page",
+    "Access Control"=>"Contrôle d'accès"
 ];
 ?>
