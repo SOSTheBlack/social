@@ -6,7 +6,6 @@ use Eloquent;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -17,7 +16,7 @@ use Illuminate\Support\Carbon;
 use Laravel\Passport\Client;
 use Laravel\Passport\HasApiTokens;
 use Laravel\Passport\Token;
-
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * App\Entities\User
@@ -35,7 +34,7 @@ use Laravel\Passport\Token;
  * @property-read int|null $clients_count
  * @property-read DatabaseNotificationCollection|DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
- * @property-read Collection|\App\Entities\Profile[] $profile
+ * @property-read Collection|Profile[] $profile
  * @property-read int|null $profile_count
  * @property-read Collection|Token[] $tokens
  * @property-read int|null $tokens_count
@@ -55,10 +54,16 @@ use Laravel\Passport\Token;
  * @method static \Illuminate\Database\Query\Builder|User withTrashed()
  * @method static \Illuminate\Database\Query\Builder|User withoutTrashed()
  * @mixin Eloquent
+ * @property-read Collection|\App\Entities\Permission[] $permissions
+ * @property-read int|null $permissions_count
+ * @property-read Collection|\App\Entities\Role[] $roles
+ * @property-read int|null $roles_count
+ * @method static Builder|User permission($permissions)
+ * @method static Builder|User role($roles, $guard = null)
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, Notifiable, SoftDeletes;
+    use HasApiTokens, Notifiable, SoftDeletes, HasRoles;
 
     /**
      * The attributes that are mass assignable.

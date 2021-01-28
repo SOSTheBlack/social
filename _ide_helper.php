@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 8.24.0.
+ * Generated for Laravel 8.25.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -196,6 +196,18 @@
         {
                         /** @var \Illuminate\Foundation\Application $instance */
                         return $instance->langPath();
+        }
+                    /**
+         * Set the language file directory.
+         *
+         * @param string $path
+         * @return \Illuminate\Foundation\Application 
+         * @static 
+         */ 
+        public static function useLangPath($path)
+        {
+                        /** @var \Illuminate\Foundation\Application $instance */
+                        return $instance->useLangPath($path);
         }
                     /**
          * Get the path to the public / web directory.
@@ -11334,6 +11346,30 @@
      */ 
         class Schema {
                     /**
+         * Create a database in the schema.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function createDatabase($name)
+        {
+                        /** @var \Illuminate\Database\Schema\MySqlBuilder $instance */
+                        return $instance->createDatabase($name);
+        }
+                    /**
+         * Drop a database from the schema if the database exists.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function dropDatabaseIfExists($name)
+        {
+                        /** @var \Illuminate\Database\Schema\MySqlBuilder $instance */
+                        return $instance->dropDatabaseIfExists($name);
+        }
+                    /**
          * Determine if the given table exists.
          *
          * @param string $table
@@ -14357,6 +14393,60 @@
      
 }
 
+    namespace Creativeorange\Gravatar\Facades { 
+            /**
+     * 
+     *
+     * @see \Creativeorange\Gravatar\Gravatar
+     */ 
+        class Gravatar {
+                    /**
+         * Override the default image fallback set in the config.
+         * 
+         * Can either be a public URL to an image or a valid themed image.
+         * For more info, visit http://en.gravatar.com/site/implement/images/#default-image
+         *
+         * @param string $fallback
+         * @return \Creativeorange\Gravatar\Gravatar 
+         * @static 
+         */ 
+        public static function fallback($fallback)
+        {
+                        /** @var \Creativeorange\Gravatar\Gravatar $instance */
+                        return $instance->fallback($fallback);
+        }
+                    /**
+         * Check if Gravatar has an avatar for the given email address
+         *
+         * @param string $email
+         * @return bool 
+         * @throws InvalidEmailException
+         * @static 
+         */ 
+        public static function exists($email)
+        {
+                        /** @var \Creativeorange\Gravatar\Gravatar $instance */
+                        return $instance->exists($email);
+        }
+                    /**
+         * Get the gravatar url
+         *
+         * @param string $email
+         * @param string $configGroup
+         * @return string 
+         * @throws InvalidEmailException
+         * @static 
+         */ 
+        public static function get($email, $configGroup = 'default')
+        {
+                        /** @var \Creativeorange\Gravatar\Gravatar $instance */
+                        return $instance->get($email, $configGroup);
+        }
+         
+    }
+     
+}
+
     namespace Facade\Ignition\Facades { 
             /**
      * Class Flare.
@@ -14918,6 +15008,35 @@
         public static function emailVerification()
         {
                         return \Illuminate\Routing\Router::emailVerification();
+        }
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class Route {
+                    /**
+         * 
+         *
+         * @see \Spatie\Permission\PermissionServiceProvider::registerMacroHelpers()
+         * @param mixed $roles
+         * @static 
+         */ 
+        public static function role($roles = [])
+        {
+                        return \Illuminate\Routing\Route::role($roles);
+        }
+                    /**
+         * 
+         *
+         * @see \Spatie\Permission\PermissionServiceProvider::registerMacroHelpers()
+         * @param mixed $permissions
+         * @static 
+         */ 
+        public static function permission($permissions = [])
+        {
+                        return \Illuminate\Routing\Route::permission($permissions);
         }
          
     }
@@ -16350,7 +16469,7 @@ namespace  {
                 /**
              * Add a subquery join clause to the query.
              *
-             * @param \Closure|\Illuminate\Database\Query\Builder|string $query
+             * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string $query
              * @param string $as
              * @param \Closure|string $first
              * @param string|null $operator
@@ -16402,7 +16521,7 @@ namespace  {
                 /**
              * Add a subquery left join to the query.
              *
-             * @param \Closure|\Illuminate\Database\Query\Builder|string $query
+             * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string $query
              * @param string $as
              * @param \Closure|string $first
              * @param string|null $operator
@@ -16451,7 +16570,7 @@ namespace  {
                 /**
              * Add a subquery right join to the query.
              *
-             * @param \Closure|\Illuminate\Database\Query\Builder|string $query
+             * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string $query
              * @param string $as
              * @param \Closure|string $first
              * @param string|null $operator
@@ -18140,6 +18259,7 @@ namespace  {
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
             class TemplateHelper extends \App\Helpers\TemplateHelper {}
+            class Gravatar extends \Creativeorange\Gravatar\Facades\Gravatar {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
             class Livewire extends \Livewire\Livewire {}
      
