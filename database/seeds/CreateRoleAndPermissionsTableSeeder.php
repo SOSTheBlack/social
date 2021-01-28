@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Entities\Permission;
 use Illuminate\Database\Seeder;
 
 /**
@@ -18,5 +19,8 @@ class CreateRoleAndPermissionsTableSeeder extends Seeder
      */
     public function run()
     {
+        Permission::create(['name' => 'super-admin']);
+        Permission::create(['name' => 'free_trial']);
+        Permission::create(['name' => 'payer']);
     }
 }

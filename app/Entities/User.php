@@ -54,6 +54,12 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static \Illuminate\Database\Query\Builder|User withTrashed()
  * @method static \Illuminate\Database\Query\Builder|User withoutTrashed()
  * @mixin Eloquent
+ * @property-read Collection|\App\Entities\Permission[] $permissions
+ * @property-read int|null $permissions_count
+ * @property-read Collection|\App\Entities\Role[] $roles
+ * @property-read int|null $roles_count
+ * @method static Builder|User permission($permissions)
+ * @method static Builder|User role($roles, $guard = null)
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
