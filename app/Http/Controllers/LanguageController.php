@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\RedirectResponse;
 
 /**
@@ -17,12 +16,13 @@ class LanguageController extends Controller
      *
      * @var array
      */
-    private $availLocale = [
-        'en'=>'en',
-        'fr'=>'fr',
-        'de'=>'de',
-        'pt_BR'=>'pt_BR',
-    ];
+    private $availLocale
+        = [
+            'en' => 'en',
+            'fr' => 'fr',
+            'de' => 'de',
+            'br' => 'br',
+        ];
 
     /**
      * @param string $locale
@@ -31,10 +31,10 @@ class LanguageController extends Controller
      */
     public function swap(string $locale): RedirectResponse
     {
-        // check for existing language
         if (array_key_exists($locale, $this->availLocale)) {
             session()->put('locale', $locale);
         }
+
         return redirect()->back();
     }
 }

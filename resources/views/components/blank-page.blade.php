@@ -4,9 +4,9 @@
         <div class="card">
             <div class="card-content">
                 <p class="caption mb-0">
-                    Sample blank page for getting start!! Created and designed by Google, Material Design is a design
-                    language that combines the classic principles of successful design along with innovation and
-                    technology.
+                    Amostra de página em branco para começar !! Criado e projetado pelo Google, o material design é um design
+                    linguagem que combina os princípios clássicos de design de sucesso com inovação e
+                    tecnologia.
                 </p>
             </div>
         </div>

@@ -1,12 +1,12 @@
 {{-- pageConfigs variable pass to Helper's updatePageConfig function to update page configuration  --}}
 @isset($pageConfigs)
-{!! Helper::updatePageConfig($pageConfigs) !!}
+{!! TemplateHelper::updatePageConfig($pageConfigs) !!}
 @endisset
 
 <!DOCTYPE html>
 @php
 // confiData variable layoutClasses array in Helper.php file.
-$configData = Helper::applClasses();
+$configData = TemplateHelper::applClasses();
 @endphp
 <html class="loading"
   lang="@if(session()->has('locale')){{session()->get('locale')}}@else{{$configData['defaultLanguage']}}@endif"
@@ -39,4 +39,5 @@ $configData = Helper::applClasses();
 <h1>{{'mainLayoutType Option is empty in config custom.php file.'}}</h1>
 @endif
 @livewireScripts
+<script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
 </html>

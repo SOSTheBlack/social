@@ -4,23 +4,18 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+/**
+ * Class ResetPasswordController
+ *
+ * @package App\Http\Controllers\Auth
+ */
 class ResetPasswordController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Password Reset Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller is responsible for handling password reset requests
-    | and uses a simple trait to include this behavior. You're free to
-    | explore this trait and override any methods you wish to tweak.
-    |
-    */
-
     use ResetsPasswords;
 
     /**
@@ -28,7 +23,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/page-blank';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -40,12 +35,22 @@ class ResetPasswordController extends Controller
         $this->middleware('guest');
     }
 
-    public function showResetForm(Request $request, $token = null)
+    /**
+     * Display the password reset view for the given token.
+     *
+     * If no token is present, display the link request form.
+     *
+     * @param Request    $request
+     * @param string|null $token
+     *
+     * @return View
+     */
+    public function showResetForm(Request $request, ?string $token = null): View
     {
-      $pageConfigs = ['bodyCustomClass' => 'login-bg', 'isCustomizer' => false];
-      
-      return view('auth.passwords.reset')->with(
-          ['token' => $token, 'email' => $request->email, 'pageConfigs' => $pageConfigs]
-      );
+        $pageConfigs = ['bodyCustomClass' => 'login-bg', 'isCustomizer' => false];
+
+        return view('auth.passwords.reset')->with(
+            ['token' => $token, 'email' => $request->email, 'pageConfigs' => $pageConfigs, 'pageTitle' => trans('locale.Forgot Your Password')]
+        );
     }
 }

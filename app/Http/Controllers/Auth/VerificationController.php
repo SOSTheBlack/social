@@ -3,22 +3,18 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
+/**
+ * Class VerificationController
+ *
+ * @package App\Http\Controllers\Auth
+ */
 class VerificationController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Email Verification Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller is responsible for handling email verification for any
-    | user that recently registered with the application. Emails may also
-    | be re-sent if the user didn't receive the original email message.
-    |
-    */
-
     use VerifiesEmails;
 
     /**
@@ -26,7 +22,7 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/page-blank';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -39,5 +35,22 @@ class VerificationController extends Controller
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
-    
+
+    /**
+     * Show the email verification notice.
+     *
+     * @param  Request  $request
+     *
+     * @return RedirectResponse|View
+     */
+    public function show(Request $request)
+    {
+        $pageConfigs = ['bodyCustomClass' => 'register-bg', 'isCustomizer' => false];
+
+        return $request->user()->hasVerifiedEmail()
+            ? redirect($this->redirectPath())
+            : view('auth.verify', [
+                'pageConfigs' => $pageConfigs, 'pageTitle' => trans('locale.auth.verify.page-title'),
+            ]);
+    }
 }
