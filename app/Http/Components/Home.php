@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Components\Dashboard;
+namespace App\Http\Components;
 
 use App\Http\Components\BaseComponent;
 use Illuminate\View\View;
@@ -22,6 +22,6 @@ class Home extends BaseComponent
 
         parent::baseRender();
 
-        return view('components.dashboard.home');
+        return view('components.home');
     }
 }
