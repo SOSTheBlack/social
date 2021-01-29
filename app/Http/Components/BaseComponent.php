@@ -2,7 +2,7 @@
 
 namespace App\Http\Components;
 
-use Illuminate\View\View;
+use Illuminate\Support\Arr;
 use Livewire\Component;
 
 /**
@@ -13,32 +13,47 @@ use Livewire\Component;
 abstract class BaseComponent extends Component
 {
     /**
-     * Title of page.
+     * Title of Page.
      *
      * @var string
      */
-    protected string $pageTitle;
+    private string $pageTitle;
 
     /**
      * Breadcrumbs of content.
      *
      * @var array
      */
-    protected array $breadcrumbs = [];
+    private array $breadcrumbs;
 
     /**
-     * Render your view.
+     * Runs once, immediately after the component is instantiated, but before render() is called.
      *
-     * @return View|void
+     * @void
      */
-    public function baseRender()
+    protected function mount(): void
     {
-        view()->share('pageTitle', $this->pageTitle);
-        view()->share('breadcrumbs', $this->breadcrumbs);
+        $this->breadcrumbs[] = ['name' => config('app.name'), 'link' => 'home'];
+
+        view()->share('breadcrumbs', array_reverse($this->breadcrumbs));
+        view()->share('title', $this->pageTitle);
     }
 
     /**
-     * @param  string  $pageTitle
+     * @param  string  $name
+     * @param  string  $link
+     *
+     * @return BaseComponent
+     */
+    public function pushBreadcrumbs(string $name, string $link = ''): BaseComponent
+    {
+        $this->breadcrumbs[] = ['name' => $name, 'link' => $link];
+
+        return $this;
+    }
+
+    /**
+     * @param  mixed  $pageTitle
      *
      * @return BaseComponent
      */
@@ -47,24 +62,5 @@ abstract class BaseComponent extends Component
         $this->pageTitle = $pageTitle;
 
         return $this;
-    }
-
-    /**
-     * @param  array  $breadcrumbs
-     *
-     * @return BaseComponent
-     */
-    public function setBreadcrumbs(array $breadcrumbs): BaseComponent
-    {
-        $this->breadcrumbs = $breadcrumbs;
-
-        return $this;
-    }
-
-    public function pushBreadcrumbs(string $name, string $link): void
-    {
-        if (empty($this->breadcrumbs)) {
-//            $this->breadcrumbs[] = ['name' => env('APP_NAME'), 'link']
-        }
     }
 }

@@ -10,6 +10,15 @@
       "icon": "dashboard"
     },
     {
+      "url": "/blank-page",
+      "route": "blank-page",
+      "name": "Página de Exemplo",
+      "i18n": "Página de Exemplo",
+      "class": "waves-effect waves-cyan",
+      "slug": "blank-page",
+      "icon": "check_box_outline_blank"
+    },
+    {
       "navheader": "Misc ",
       "icon": "more_horiz"
     },

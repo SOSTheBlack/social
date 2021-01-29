@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Components\BlankPage;
-use App\Http\Components\Home;
-use App\Http\Components\Settings\SocialMedias\Instagram\NewInstagramComponent as InstagramCreateComponent;
+use App\Http\Components\BlankPageComponent;
+use App\Http\Components\HomeComponent;
+use App\Http\Components\Settings\SocialMedias\Instagram\NewInstagramComponent;
 use App\Http\Controllers\LanguageController;
 
 Auth::routes(['verify' => true]);
@@ -15,9 +15,9 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/')->uses(Home::class)->name('home');
+    Route::get('/')->uses(HomeComponent::class)->name('home');
 
-    Route::get('/settings/social_medias/instagram/new', InstagramCreateComponent::class)->name('settings.social_medias.instagram.new');
+    Route::get('/settings/social_medias/instagram/new')->uses(NewInstagramComponent::class)->name('settings.social_medias.instagram.new');
 
-    Route::get('/blank-page', BlankPage::class)->name('blank');
+    Route::get('/blank-page')->uses(BlankPageComponent::class)->name('blank-page');
 });
