@@ -20,6 +20,21 @@ class NewInstagramComponent extends SocialMediaComponent
     private const PAGE_TITLE = 'Novo Instagram';
 
     /**
+     * @var string
+     */
+    public string $usernameInstagram = '', $passwordInstagram = '';
+
+    protected $rules = [
+        'usernameInstagram' => ['required', 'string'],
+        'passwordInstagram' => ['required', 'string']
+    ];
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
+    /**
      * Runs once, immediately after the component is instantiated, but before render() is called.
      *
      * @void
@@ -37,5 +52,10 @@ class NewInstagramComponent extends SocialMediaComponent
     public function render(): View
     {
         return view('components.settings.social_medias.instagram.new-component');
+    }
+
+    public function submit()
+    {
+        dd($this->usernameInstagram);
     }
 }
