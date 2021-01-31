@@ -4,6 +4,7 @@ namespace App\Http\Components\Settings\SocialMedias\Instagram;
 
 use App\Http\Components\Settings\SocialMedias\SocialMediaComponent;
 use Illuminate\Contracts\View\View;
+use Illuminate\Validation\ValidationException;
 
 /**
  * Class NewInstagramComponent
@@ -24,12 +25,20 @@ class NewInstagramComponent extends SocialMediaComponent
      */
     public string $usernameInstagram = '', $passwordInstagram = '';
 
+    /**
+     * @var string[][]
+     */
     protected $rules = [
         'usernameInstagram' => ['required', 'string'],
         'passwordInstagram' => ['required', 'string']
     ];
 
-    public function updated($propertyName)
+    /**
+     * @param $propertyName
+     *
+     * @throws ValidationException
+     */
+    public function updated(string $propertyName): void
     {
         $this->validateOnly($propertyName);
     }
@@ -41,7 +50,7 @@ class NewInstagramComponent extends SocialMediaComponent
      */
     public function mount(): void
     {
-        $this->setPageTitle(Self::PAGE_TITLE)->pushBreadcrumbs(self::PAGE_TITLE);
+        $this->setPageTitle(self::PAGE_TITLE)->pushBreadcrumbs(self::PAGE_TITLE);
 
         parent::mount();
     }
@@ -56,6 +65,7 @@ class NewInstagramComponent extends SocialMediaComponent
 
     public function submit()
     {
+
         dd($this->usernameInstagram);
     }
 }
