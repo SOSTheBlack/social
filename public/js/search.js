@@ -312,7 +312,7 @@ $(window).on("resize", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/js/search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\app.social\resources\js\search.js */"./resources/js/search.js");
 
 
 /***/ })

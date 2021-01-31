@@ -2171,7 +2171,7 @@
 }
 
 .horizontal-menu.app-page .chat-application .app-chat .chat-content .sidebar .sidebar-chat {
-  height: calc( 100vh - 450px);
+  height: calc( 100vh - 460px);
 }
 
 .horizontal-menu.app-page .app-todo .content-area .app-wrapper .todo-header {

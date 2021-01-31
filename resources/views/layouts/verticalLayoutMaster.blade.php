@@ -34,7 +34,7 @@
       <div class="col s12">
         <div class="container">
           {{-- main page content --}}
-          @yield('content')
+          {{ $slot }}
           {{-- right sidebar --}}
 {{--          @include('pages.sidebar.right-sidebar')--}}
         </div>

@@ -1,8 +1,8 @@
 {
   "menu": [
     {
-      "url": "home",
-      "route": "dashboard.home",
+      "url": "/",
+      "route": "home",
       "name": "Dashboard",
       "i18n": "Dashboard",
       "class": "waves-effect waves-cyan",
@@ -10,26 +10,35 @@
       "icon": "dashboard"
     },
     {
+      "url": "/blank-page",
+      "route": "blank-page",
+      "name": "Página de Exemplo",
+      "i18n": "Página de Exemplo",
+      "class": "waves-effect waves-cyan",
+      "slug": "blank-page",
+      "icon": "check_box_outline_blank"
+    },
+    {
       "navheader": "Misc ",
       "icon": "more_horiz"
     },
     {
-      "url": "#",
-      "name": "Documentation",
-      "i18n": "Documentation",
-      "class": "waves-effect waves-cyan",
-      "icon": "import_contacts",
-      "slug": "documentation",
-      "newTab": "_blank"
-    },
-    {
-      "url": "https://pixinvent.ticksy.com/",
-      "name": "Support",
-      "i18n": "Support",
-      "class": "waves-effect waves-cyan",
-      "icon": "help_outline",
-      "slug": "support",
-      "newTab": "_blank"
+      "url": "javascript:void(0)",
+      "name": "Configurações",
+      "i18n": "Configurações",
+      "class": "collapsible-header waves-effect waves-cyan",
+      "slug": "settings",
+      "icon": "settings",
+      "tagcustom": "badge pill orange float-right mr-10",
+      "submenu": [
+        {
+          "url": "/",
+          "route": "settings.social_medias.instagram.new",
+          "name": "Mídias Sociais",
+          "i18n": "settings_applications",
+          "slug": "dashboard-modern"
+        }
+      ]
     }
   ]
 }

@@ -13066,10 +13066,351 @@ var $jscomp$this = this;
 
 /***/ }),
 
+/***/ "./resources/sass/pages/advance-ui-media.scss":
+/*!****************************************************!*\
+  !*** ./resources/sass/pages/advance-ui-media.scss ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/app-calendar.scss":
+/*!************************************************!*\
+  !*** ./resources/sass/pages/app-calendar.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/app-chat.scss":
+/*!********************************************!*\
+  !*** ./resources/sass/pages/app-chat.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/app-contacts.scss":
+/*!************************************************!*\
+  !*** ./resources/sass/pages/app-contacts.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/app-email-content.scss":
+/*!*****************************************************!*\
+  !*** ./resources/sass/pages/app-email-content.scss ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/app-email.scss":
+/*!*********************************************!*\
+  !*** ./resources/sass/pages/app-email.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/app-file-manager.scss":
+/*!****************************************************!*\
+  !*** ./resources/sass/pages/app-file-manager.scss ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/app-invoice.scss":
+/*!***********************************************!*\
+  !*** ./resources/sass/pages/app-invoice.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/app-kanban.scss":
+/*!**********************************************!*\
+  !*** ./resources/sass/pages/app-kanban.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/app-sidebar.scss":
+/*!***********************************************!*\
+  !*** ./resources/sass/pages/app-sidebar.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/app-todo.scss":
+/*!********************************************!*\
+  !*** ./resources/sass/pages/app-todo.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/badges.scss":
+/*!******************************************!*\
+  !*** ./resources/sass/pages/badges.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/cards-basic.scss":
+/*!***********************************************!*\
+  !*** ./resources/sass/pages/cards-basic.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/charts-chartist.scss":
+/*!***************************************************!*\
+  !*** ./resources/sass/pages/charts-chartist.scss ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/charts-sparkline.scss":
+/*!****************************************************!*\
+  !*** ./resources/sass/pages/charts-sparkline.scss ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/component-navbar.scss":
+/*!****************************************************!*\
+  !*** ./resources/sass/pages/component-navbar.scss ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/contacts.scss":
+/*!********************************************!*\
+  !*** ./resources/sass/pages/contacts.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/css-media.scss":
+/*!*********************************************!*\
+  !*** ./resources/sass/pages/css-media.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/dashboard-modern.scss":
+/*!****************************************************!*\
+  !*** ./resources/sass/pages/dashboard-modern.scss ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/dashboard.scss":
+/*!*********************************************!*\
+  !*** ./resources/sass/pages/dashboard.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/data-tables.scss":
+/*!***********************************************!*\
+  !*** ./resources/sass/pages/data-tables.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/eCommerce-products-page.scss":
+/*!***********************************************************!*\
+  !*** ./resources/sass/pages/eCommerce-products-page.scss ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/error.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/pages/error.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/extra-components-tour.scss":
+/*!*********************************************************!*\
+  !*** ./resources/sass/pages/extra-components-tour.scss ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/extra-components-treeview.scss":
+/*!*************************************************************!*\
+  !*** ./resources/sass/pages/extra-components-treeview.scss ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/pages/forgot.scss":
 /*!******************************************!*\
   !*** ./resources/sass/pages/forgot.scss ***!
   \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/form-select2.scss":
+/*!************************************************!*\
+  !*** ./resources/sass/pages/form-select2.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/form-wizard.scss":
+/*!***********************************************!*\
+  !*** ./resources/sass/pages/form-wizard.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/gallery.scss":
+/*!*******************************************!*\
+  !*** ./resources/sass/pages/gallery.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/icon.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/pages/icon.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/intro.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/pages/intro.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/lock.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/pages/lock.scss ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -13088,10 +13429,186 @@ var $jscomp$this = this;
 
 /***/ }),
 
+/***/ "./resources/sass/pages/map.scss":
+/*!***************************************!*\
+  !*** ./resources/sass/pages/map.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/page-404.scss":
+/*!********************************************!*\
+  !*** ./resources/sass/pages/page-404.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/page-500.scss":
+/*!********************************************!*\
+  !*** ./resources/sass/pages/page-500.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/page-account-settings.scss":
+/*!*********************************************************!*\
+  !*** ./resources/sass/pages/page-account-settings.scss ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/page-blog.scss":
+/*!*********************************************!*\
+  !*** ./resources/sass/pages/page-blog.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/page-contact.scss":
+/*!************************************************!*\
+  !*** ./resources/sass/pages/page-contact.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/page-faq.scss":
+/*!********************************************!*\
+  !*** ./resources/sass/pages/page-faq.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/page-knowledge.scss":
+/*!**************************************************!*\
+  !*** ./resources/sass/pages/page-knowledge.scss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/page-maintenance.scss":
+/*!****************************************************!*\
+  !*** ./resources/sass/pages/page-maintenance.scss ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/page-search.scss":
+/*!***********************************************!*\
+  !*** ./resources/sass/pages/page-search.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/page-timeline.scss":
+/*!*************************************************!*\
+  !*** ./resources/sass/pages/page-timeline.scss ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/page-users.scss":
+/*!**********************************************!*\
+  !*** ./resources/sass/pages/page-users.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/pricing.scss":
+/*!*******************************************!*\
+  !*** ./resources/sass/pages/pricing.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/product.scss":
+/*!*******************************************!*\
+  !*** ./resources/sass/pages/product.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/profile.scss":
+/*!*******************************************!*\
+  !*** ./resources/sass/pages/profile.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/pages/register.scss":
 /*!********************************************!*\
   !*** ./resources/sass/pages/register.scss ***!
   \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pages/user-profile-page.scss":
+/*!*****************************************************!*\
+  !*** ./resources/sass/pages/user-profile-page.scss ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -13265,34 +13782,81 @@ var $jscomp$this = this;
 /***/ }),
 
 /***/ 0:
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/materialize.js ./resources/sass/custom/custom.scss ./resources/sass/pages/forgot.scss ./resources/sass/pages/login.scss ./resources/sass/pages/register.scss ./resources/sass/pages/variables.scss ./resources/sass/pages/widget-timeline.scss ./resources/sass/themes/horizontal-menu-template/materialize.scss ./resources/sass/themes/horizontal-menu-template/style.scss ./resources/sass/themes/sample-theme-starter/materialize.scss ./resources/sass/themes/sample-theme-starter/style.scss ./resources/sass/themes/vertical-dark-menu-template/materialize.scss ./resources/sass/themes/vertical-dark-menu-template/style.scss ./resources/sass/themes/vertical-gradient-menu-template/materialize.scss ./resources/sass/themes/vertical-gradient-menu-template/style.scss ./resources/sass/themes/vertical-menu-nav-dark-template/materialize.scss ./resources/sass/themes/vertical-menu-nav-dark-template/style.scss ./resources/sass/themes/vertical-modern-menu-template/materialize.scss ./resources/sass/themes/vertical-modern-menu-template/style.scss ./resources/sass/layouts/style-horizontal.scss ./resources/sass/style-rtl.scss ./resources/sass/laravel-custom.scss ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/materialize.js ./resources/sass/custom/custom.scss ./resources/sass/pages/advance-ui-media.scss ./resources/sass/pages/app-calendar.scss ./resources/sass/pages/app-chat.scss ./resources/sass/pages/app-contacts.scss ./resources/sass/pages/app-email-content.scss ./resources/sass/pages/app-email.scss ./resources/sass/pages/app-file-manager.scss ./resources/sass/pages/app-invoice.scss ./resources/sass/pages/app-kanban.scss ./resources/sass/pages/app-sidebar.scss ./resources/sass/pages/app-todo.scss ./resources/sass/pages/badges.scss ./resources/sass/pages/cards-basic.scss ./resources/sass/pages/charts-chartist.scss ./resources/sass/pages/charts-sparkline.scss ./resources/sass/pages/component-navbar.scss ./resources/sass/pages/contacts.scss ./resources/sass/pages/css-media.scss ./resources/sass/pages/dashboard-modern.scss ./resources/sass/pages/dashboard.scss ./resources/sass/pages/data-tables.scss ./resources/sass/pages/eCommerce-products-page.scss ./resources/sass/pages/error.scss ./resources/sass/pages/extra-components-tour.scss ./resources/sass/pages/extra-components-treeview.scss ./resources/sass/pages/forgot.scss ./resources/sass/pages/form-select2.scss ./resources/sass/pages/form-wizard.scss ./resources/sass/pages/gallery.scss ./resources/sass/pages/icon.scss ./resources/sass/pages/intro.scss ./resources/sass/pages/lock.scss ./resources/sass/pages/login.scss ./resources/sass/pages/map.scss ./resources/sass/pages/page-404.scss ./resources/sass/pages/page-500.scss ./resources/sass/pages/page-account-settings.scss ./resources/sass/pages/page-blog.scss ./resources/sass/pages/page-contact.scss ./resources/sass/pages/page-faq.scss ./resources/sass/pages/page-knowledge.scss ./resources/sass/pages/page-maintenance.scss ./resources/sass/pages/page-search.scss ./resources/sass/pages/page-timeline.scss ./resources/sass/pages/page-users.scss ./resources/sass/pages/pricing.scss ./resources/sass/pages/product.scss ./resources/sass/pages/profile.scss ./resources/sass/pages/register.scss ./resources/sass/pages/user-profile-page.scss ./resources/sass/pages/variables.scss ./resources/sass/pages/widget-timeline.scss ./resources/sass/themes/horizontal-menu-template/materialize.scss ./resources/sass/themes/horizontal-menu-template/style.scss ./resources/sass/themes/sample-theme-starter/materialize.scss ./resources/sass/themes/sample-theme-starter/style.scss ./resources/sass/themes/vertical-dark-menu-template/materialize.scss ./resources/sass/themes/vertical-dark-menu-template/style.scss ./resources/sass/themes/vertical-gradient-menu-template/materialize.scss ./resources/sass/themes/vertical-gradient-menu-template/style.scss ./resources/sass/themes/vertical-menu-nav-dark-template/materialize.scss ./resources/sass/themes/vertical-menu-nav-dark-template/style.scss ./resources/sass/themes/vertical-modern-menu-template/materialize.scss ./resources/sass/themes/vertical-modern-menu-template/style.scss ./resources/sass/layouts/style-horizontal.scss ./resources/sass/style-rtl.scss ./resources/sass/laravel-custom.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/js/materialize.js */"./resources/js/materialize.js");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/custom/custom.scss */"./resources/sass/custom/custom.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/pages/forgot.scss */"./resources/sass/pages/forgot.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/pages/login.scss */"./resources/sass/pages/login.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/pages/register.scss */"./resources/sass/pages/register.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/pages/variables.scss */"./resources/sass/pages/variables.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/pages/widget-timeline.scss */"./resources/sass/pages/widget-timeline.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/themes/horizontal-menu-template/materialize.scss */"./resources/sass/themes/horizontal-menu-template/materialize.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/themes/horizontal-menu-template/style.scss */"./resources/sass/themes/horizontal-menu-template/style.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/themes/sample-theme-starter/materialize.scss */"./resources/sass/themes/sample-theme-starter/materialize.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/themes/sample-theme-starter/style.scss */"./resources/sass/themes/sample-theme-starter/style.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/themes/vertical-dark-menu-template/materialize.scss */"./resources/sass/themes/vertical-dark-menu-template/materialize.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/themes/vertical-dark-menu-template/style.scss */"./resources/sass/themes/vertical-dark-menu-template/style.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/themes/vertical-gradient-menu-template/materialize.scss */"./resources/sass/themes/vertical-gradient-menu-template/materialize.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/themes/vertical-gradient-menu-template/style.scss */"./resources/sass/themes/vertical-gradient-menu-template/style.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/themes/vertical-menu-nav-dark-template/materialize.scss */"./resources/sass/themes/vertical-menu-nav-dark-template/materialize.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/themes/vertical-menu-nav-dark-template/style.scss */"./resources/sass/themes/vertical-menu-nav-dark-template/style.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/themes/vertical-modern-menu-template/materialize.scss */"./resources/sass/themes/vertical-modern-menu-template/materialize.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/themes/vertical-modern-menu-template/style.scss */"./resources/sass/themes/vertical-modern-menu-template/style.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/layouts/style-horizontal.scss */"./resources/sass/layouts/style-horizontal.scss");
-__webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/style-rtl.scss */"./resources/sass/style-rtl.scss");
-module.exports = __webpack_require__(/*! /Users/macmini03/Documents/code/personal/social/app.social/resources/sass/laravel-custom.scss */"./resources/sass/laravel-custom.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\js\materialize.js */"./resources/js/materialize.js");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\custom\custom.scss */"./resources/sass/custom/custom.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\advance-ui-media.scss */"./resources/sass/pages/advance-ui-media.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\app-calendar.scss */"./resources/sass/pages/app-calendar.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\app-chat.scss */"./resources/sass/pages/app-chat.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\app-contacts.scss */"./resources/sass/pages/app-contacts.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\app-email-content.scss */"./resources/sass/pages/app-email-content.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\app-email.scss */"./resources/sass/pages/app-email.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\app-file-manager.scss */"./resources/sass/pages/app-file-manager.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\app-invoice.scss */"./resources/sass/pages/app-invoice.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\app-kanban.scss */"./resources/sass/pages/app-kanban.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\app-sidebar.scss */"./resources/sass/pages/app-sidebar.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\app-todo.scss */"./resources/sass/pages/app-todo.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\badges.scss */"./resources/sass/pages/badges.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\cards-basic.scss */"./resources/sass/pages/cards-basic.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\charts-chartist.scss */"./resources/sass/pages/charts-chartist.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\charts-sparkline.scss */"./resources/sass/pages/charts-sparkline.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\component-navbar.scss */"./resources/sass/pages/component-navbar.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\contacts.scss */"./resources/sass/pages/contacts.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\css-media.scss */"./resources/sass/pages/css-media.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\dashboard-modern.scss */"./resources/sass/pages/dashboard-modern.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\dashboard.scss */"./resources/sass/pages/dashboard.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\data-tables.scss */"./resources/sass/pages/data-tables.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\eCommerce-products-page.scss */"./resources/sass/pages/eCommerce-products-page.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\error.scss */"./resources/sass/pages/error.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\extra-components-tour.scss */"./resources/sass/pages/extra-components-tour.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\extra-components-treeview.scss */"./resources/sass/pages/extra-components-treeview.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\forgot.scss */"./resources/sass/pages/forgot.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\form-select2.scss */"./resources/sass/pages/form-select2.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\form-wizard.scss */"./resources/sass/pages/form-wizard.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\gallery.scss */"./resources/sass/pages/gallery.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\icon.scss */"./resources/sass/pages/icon.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\intro.scss */"./resources/sass/pages/intro.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\lock.scss */"./resources/sass/pages/lock.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\login.scss */"./resources/sass/pages/login.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\map.scss */"./resources/sass/pages/map.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\page-404.scss */"./resources/sass/pages/page-404.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\page-500.scss */"./resources/sass/pages/page-500.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\page-account-settings.scss */"./resources/sass/pages/page-account-settings.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\page-blog.scss */"./resources/sass/pages/page-blog.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\page-contact.scss */"./resources/sass/pages/page-contact.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\page-faq.scss */"./resources/sass/pages/page-faq.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\page-knowledge.scss */"./resources/sass/pages/page-knowledge.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\page-maintenance.scss */"./resources/sass/pages/page-maintenance.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\page-search.scss */"./resources/sass/pages/page-search.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\page-timeline.scss */"./resources/sass/pages/page-timeline.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\page-users.scss */"./resources/sass/pages/page-users.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\pricing.scss */"./resources/sass/pages/pricing.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\product.scss */"./resources/sass/pages/product.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\profile.scss */"./resources/sass/pages/profile.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\register.scss */"./resources/sass/pages/register.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\user-profile-page.scss */"./resources/sass/pages/user-profile-page.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\variables.scss */"./resources/sass/pages/variables.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\pages\widget-timeline.scss */"./resources/sass/pages/widget-timeline.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\themes\horizontal-menu-template\materialize.scss */"./resources/sass/themes/horizontal-menu-template/materialize.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\themes\horizontal-menu-template\style.scss */"./resources/sass/themes/horizontal-menu-template/style.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\themes\sample-theme-starter\materialize.scss */"./resources/sass/themes/sample-theme-starter/materialize.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\themes\sample-theme-starter\style.scss */"./resources/sass/themes/sample-theme-starter/style.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\themes\vertical-dark-menu-template\materialize.scss */"./resources/sass/themes/vertical-dark-menu-template/materialize.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\themes\vertical-dark-menu-template\style.scss */"./resources/sass/themes/vertical-dark-menu-template/style.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\themes\vertical-gradient-menu-template\materialize.scss */"./resources/sass/themes/vertical-gradient-menu-template/materialize.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\themes\vertical-gradient-menu-template\style.scss */"./resources/sass/themes/vertical-gradient-menu-template/style.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\themes\vertical-menu-nav-dark-template\materialize.scss */"./resources/sass/themes/vertical-menu-nav-dark-template/materialize.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\themes\vertical-menu-nav-dark-template\style.scss */"./resources/sass/themes/vertical-menu-nav-dark-template/style.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\themes\vertical-modern-menu-template\materialize.scss */"./resources/sass/themes/vertical-modern-menu-template/materialize.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\themes\vertical-modern-menu-template\style.scss */"./resources/sass/themes/vertical-modern-menu-template/style.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\layouts\style-horizontal.scss */"./resources/sass/layouts/style-horizontal.scss");
+__webpack_require__(/*! C:\laragon\www\app.social\resources\sass\style-rtl.scss */"./resources/sass/style-rtl.scss");
+module.exports = __webpack_require__(/*! C:\laragon\www\app.social\resources\sass\laravel-custom.scss */"./resources/sass/laravel-custom.scss");
 
 
 /***/ })

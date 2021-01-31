@@ -28,10 +28,8 @@
       @endif
       @endif
 
-
       @if($configData["pageHeader"] === true && isset($breadcrumbs))
       {{--  breadcrumb --}}
-        @dd($breadcrumbs);
       @include('panels.breadcrumb')
       @endif
       <div class="col s12">

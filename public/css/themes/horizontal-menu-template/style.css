@@ -2169,7 +2169,7 @@
 }
 
 .horizontal-menu.app-page .chat-application .app-chat .chat-content .sidebar .sidebar-chat {
-  height: calc( 100vh - 450px);
+  height: calc( 100vh - 460px);
 }
 
 .horizontal-menu.app-page .app-todo .content-area .app-wrapper .todo-header {
@@ -6953,6 +6953,10 @@ span.badge.pill {
   padding: 0;
 }
 
+.navbar .profile-button span.avatar-status {
+  line-height: 43px;
+}
+
 .navbar #profile-dropdown {
   width: 160px;
 }
@@ -7158,6 +7162,10 @@ nav.display-none.search-sm .nav-wrapper form .input-field i {
     padding: 0 13px;
   }
 
+  .navbar .profile-button span.avatar-status {
+    line-height: 39px;
+  }
+
   .notification-button i {
     position: relative;
     top: 12px;
@@ -7307,6 +7315,7 @@ nav.display-none.search-sm .nav-wrapper form .input-field i {
 .sidenav {
   top: 64px;
   overflow: hidden;
+  padding-bottom: 65px;
   height: 100%;
   border: none;
   width: inherit;
