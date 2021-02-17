@@ -9,23 +9,7 @@ use Sostheblack\InstagramApi\Instagram;
 
 Route::get('/test', function () {
 
-    $instagram = new Instagram();
 
-    $response = $instagram->login()
-        ->setUsername('theblackmc.bodybuilder')
-        ->setPassword('250863*131293')
-//        ->setUsername('buzzinasocial')
-//        ->setPassword('250863')
-        ->execute();
-    dump($instagram);
-
-    $profile = $instagram->profile()->execute();
-
-
-
-    dd($instagram, $response, json_decode((string) $profile->getBody()), 'web');
-
-    return $response;
 });
 
 Auth::routes(['verify' => true]);
