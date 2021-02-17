@@ -16,7 +16,7 @@
 
       <div class="row">
         <div class="input-field col s12">
-          <h5 class="ml-4">@lang('locale.Forgot Your Password')</h5>
+          <h5 class="ml-4">@lang('Perdeu sua senha?')</h5>
         </div>
       </div>
       <div class="row margin">
@@ -24,7 +24,7 @@
           <i class="material-icons prefix pt-2">person_outline</i>
           <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
             value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
-          <label for="email" class="center-align">@lang('locale.email')</label>
+          <label for="email" class="center-align">@lang('E-mail')</label>
           @error('email')
           <small class="red-text ml-10" role="alert">
             {{ $message }}
@@ -37,7 +37,7 @@
           <i class="material-icons prefix pt-2">lock_outline</i>
           <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
             name="password" required autocomplete="new-password">
-          <label for="password">@lang('locale.Password')</label>
+          <label for="password">{{ __('Nova senha') }}</label>
           @error('password')
           <small class="red-text ml-10" role="alert">
             {{ $message }}
@@ -50,14 +50,14 @@
           <i class="material-icons prefix pt-2">lock_outline</i>
           <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required
             autocomplete="new-password">
-          <label for="password-confirm">@lang('locale.Password Confirm')</label>
+          <label for="password-confirm">{{ __('Confrmar senha') }}</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
           <button type="submit"
-            class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">Entrar</button>
+            class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">{{ __('Acessar Conta') }}</button>
         </div>
       </div>
     </form>

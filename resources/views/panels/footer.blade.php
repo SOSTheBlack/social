@@ -5,10 +5,9 @@
   <div class="footer-copyright">
     <div class="container">
       <span>&copy; {{ now()->year }} <a href="{{ route('home') }}"
-          target="_blank">{{ config('app.name') }}</a> @lang('locale.All rights reserved').
-      </span>
+      </span> {{ __('Todos os direitos reservados') }}
       <span class="right hide-on-small-only">
-        @lang('locale.Developed by') <a href="https://github.com/SOSTheBlack">SOSTheBlack</a> | @lang('locale.Design by') <a href="https://pixinvent.com/">PIXINVENT</a>
+        {{ __('Desenvolvido por') }} <a href="https://github.com/SOSTheBlack">SOSTheBlack</a> | {{ __('Design por') }} <a href="https://pixinvent.com/">PIXINVENT</a>
       </span>
     </div>
   </div>

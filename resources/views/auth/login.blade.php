@@ -14,7 +14,7 @@
                 @csrf
                 <div class="row">
                     <div class="input-field col s12">
-                        <h5 class="ml-4 center">{{ __('locale.auth.login.form-title') }} | {{ env('APP_NAME') }}</h5>
+                        <h5 class="ml-4 center">{{ __('Painel de Controle') }} | {{ env('APP_NAME') }}</h5>
                     </div>
                 </div>
                 @if ($errors->any())
@@ -36,7 +36,7 @@
                         <i class="material-icons prefix pt-2">email</i>
                         <input id="email" type="email" class=" @error('email') is-invalid @enderror" name="email"
                                value="{{ old('email') }}" required autocomplete="email" autofocus>
-                        <label for="email" class="center-align">{{ __('locale.Email') }}</label>
+                        <label for="email" class="center-align">{{ __('E-mail') }}</label>
                     </div>
                 </div>
                 <div class="row margin">
@@ -45,7 +45,7 @@
                         <input id="password" type="password"
                                class="form-control @error('password') is-invalid @enderror"
                                name="password" required autocomplete="current-password">
-                        <label for="password">{{ __('locale.Password') }}</label>
+                        <label for="password">{{ __('Senha') }}</label>
                     </div>
                 </div>
                 <div class="row">
@@ -54,7 +54,7 @@
                             <label>
                                 <input type="checkbox" name="remember"
                                        id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                <span> @lang('locale.auth.login.remember-me') </span>
+                                <span> {{ __('Manter-me conectado!') }} </span>
                             </label>
                         </p>
                     </div>
@@ -62,18 +62,18 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <button type="submit"
-                                class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12"> @lang('locale.auth.login.login')
+                                class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12"> {{ __('Acessar') }}
                         </button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6 m6 l6">
                         <p class="margin medium-small"><a
-                                    href="{{ route('register') }}"> @lang('locale.auth.login.register-now') </a></p>
+                                    href="{{ route('register') }}"> {{ __('Cadastrar-se') }} </a></p>
                     </div>
                     <div class="input-field col s6 m6 l6">
                         <p class="margin right-align medium-small">
-                            <a href="{{ route('password.request') }}">@lang('locale.auth.login.forgot-password')</a>
+                            <a href="{{ route('password.request') }}">{{ 'Recuperar senha' }}</a>
                         </p>
                     </div>
                 </div>

@@ -110,26 +110,26 @@
                 <li>
                     <a class="grey-text text-darken-1" href="#">
                         <i class="material-icons">person_outline</i>
-                        @lang('locale.Profile')
+                        {{ __('Perfil') }}
                     </a>
                 </li>
                 <li>
                     <a class="grey-text text-darken-1" href="#">
                         <i class="material-icons">help_outline</i>
-                        @lang('locale.Support')
+                        {{ __('Suporte') }}
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li>
                     <a class="grey-text text-darken-1" href="#">
                         <i class="material-icons">lock_outline</i>
-                        @lang('locale.Lock')
+                        {{ __('Bloquear') }}
                     </a>
                 </li>
                 <li>
                     <a class="grey-text text-darken-1" href="{{ route('auth.logout') }}">
                         <i class="material-icons">keyboard_tab</i>
-                        @lang('locale.Logout')
+                        {{ __('Sair') }}
                     </a>
                 </li>
             </ul>

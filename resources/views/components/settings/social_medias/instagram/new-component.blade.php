@@ -6,7 +6,7 @@
                     <div class="row">
                         <div class="col s12">
                             <p class="card-title"><i
-                                        class="material-icons ">lock</i>{{ __(' Você está totalmente seguro!') }}</p>
+                                        class="material-icons ">lock</i>{{ __('Você está totalmente seguro!') }}</p>
                         </div>
                     </div>
                 </div>
