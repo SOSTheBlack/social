@@ -4,6 +4,13 @@ use App\Http\Components\BlankPageComponent;
 use App\Http\Components\HomeComponent;
 use App\Http\Components\Settings\SocialMedias\Instagram\NewInstagramComponent;
 use App\Http\Controllers\LanguageController;
+use Sostheblack\InstagramApi\Instagram;
+
+
+Route::get('/test', function () {
+
+
+});
 
 Auth::routes(['verify' => true]);
 
