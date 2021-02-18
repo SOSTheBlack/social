@@ -6,10 +6,15 @@ use App\Http\Components\Settings\SocialMedias\Instagram\NewInstagramComponent;
 use App\Http\Controllers\LanguageController;
 use Sostheblack\InstagramApi\Instagram;
 
-
 Route::get('/test', function () {
+    $instagram = new Instagram();
 
+    $login = $instagram->auth()
+        ->setUsername('buzzinasocial')
+        ->setPassword('250863')
+        ->login();
 
+    dd($instagram, (string) $login->getBody());
 });
 
 Auth::routes(['verify' => true]);

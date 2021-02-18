@@ -12,8 +12,8 @@
                 </div>
                 <div id="view-icon-prefixes" class="active">
                     <blockquote class="bold Flow Text">
-                        Antes de se conectar, certifique-se de que você tem acesso ao email ou celular registrado do seu
-                        Instagram.<br>Pode ser solicitado uma confirmação de "<strong>Fui eu</strong>".
+                        {{ __('Antes de se conectar, certifique-se de que você tem acesso ao email ou celular registrado do seu
+                        Instagram.<br>Pode ser solicitado uma confirmação de') }} "<strong>{{ __('Fui eu') }}</strong>".
                     </blockquote>
                     <div class="row">
                         <form wire:submit.prevent="submit" class="col s12" autocomplete="off">
