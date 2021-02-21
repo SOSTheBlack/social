@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "44272330e7ad4bf7eca33e8810bdcc13",
+    "content-hash": "88281dc4eb96593285427f76f1e054e2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3092,6 +3092,57 @@
                 "shell"
             ],
             "time": "2021-01-18T15:53:43+00:00"
+        },
+        {
+            "name": "raiym/instagram-php-scraper",
+            "version": "v0.11.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/postaddictme/instagram-php-scraper.git",
+                "reference": "c3de997d13f1b31c7bea47fbf0da463b26eaa228"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/postaddictme/instagram-php-scraper/zipball/c3de997d13f1b31c7bea47fbf0da463b26eaa228",
+                "reference": "c3de997d13f1b31c7bea47fbf0da463b26eaa228",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "guzzlehttp/psr7": "^1.7",
+                "php": ">=7.2",
+                "psr/http-client": "~1.0",
+                "psr/simple-cache": "~1.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "^7.2",
+                "phpfastcache/phpfastcache": "^7.1",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "InstagramScraper\\": "src/InstagramScraper/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "raiym",
+                    "email": "r.kapishev@gmail.com"
+                }
+            ],
+            "description": "Instagram PHP Scraper. Get account information, photos and videos without any authorization",
+            "homepage": "https://github.com/raiym/instagram-php-scraper",
+            "keywords": [
+                "instagram",
+                "scraper"
+            ],
+            "time": "2021-01-31T08:56:55+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
