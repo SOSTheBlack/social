@@ -4,29 +4,16 @@ use App\Http\Components\BlankPageComponent;
 use App\Http\Components\HomeComponent;
 use App\Http\Components\Settings\SocialMedias\Instagram\NewInstagramComponent;
 use App\Http\Controllers\LanguageController;
-use GuzzleHttp\Client;
-use Illuminate\Contracts\Cache\Repository;
 use Illuminate\Support\Facades\Http;
-use InstagramScraper\Instagram;
 use Phpfastcache\Helper\Psr16Adapter;
 
-Route::get('/test', function () {
-    $instagram = Instagram::withCredentials(new Client(), 'buzzinasocial', '250863', app(Repository::class));
-    dump($instagram->login());
+Route::get('test', function () {
+    $instagramApi = new App\Services\Instagram\Instagram();
 
-//    $responseHome = Http::get('https://www.instagram.com');
-//
-//    preg_match('/"csrf_token":"(.*?)"/', $responseHome->body(), $match);
-//    $csrfToken = isset($match[1]) ? $match[1] : '';
-//
-//    $cookies = collect($responseHome->cookies()->toArray());
-//    // "ig_cb=1; csrftoken=upElvCOYH2uMNLnJq4Hip3OB5CuDvVL5; mid=YDJfpgAEAAHUMvVTdltYj6v3coBk"
-//
-//    $cookieString = 'ig_cb=1';
-//    $cookieArray = ['ig_cb' => 1];
-//
+    dd($instagramApi->auth()->login('buzzinasocial', '250863'));
+});
 
-
+Route::get('/test-ok', function () {
     $csrftoken = md5(uniqid());
     $headers = [
         'referer'     => 'https://www.instagram.com/',
@@ -46,8 +33,6 @@ Route::get('/test', function () {
         $cookieString .= vsprintf('; %s=%s', [$cookie['Name'], $cookie['Value']]);
         $cookieArray[$cookie['Name']] = $cookie['Value'];
     }
-    
-    dd(collect($post->cookies()->toArray())->implode('Name', '; '));
 
     $headers = [
         'cookie'      => $cookieString,
@@ -59,9 +44,9 @@ Route::get('/test', function () {
 
     $account = Http::asForm()
         ->withHeaders($headers)
-        ->post('https://www.instagram.com/lilitrancas_boxbraids/?__a=1');
+        ->get('https://www.instagram.com/lilitrancas_boxbraids/?__a=1');
 
-    dd($headers, (string) $account->body());
+    dd($headers, json_decode($account->body()));
 });
 
 Auth::routes(['verify' => true]);

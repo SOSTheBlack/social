@@ -19,18 +19,18 @@
                         <form wire:submit.prevent="submit" class="col s12" autocomplete="off">
                             <div class="row input-field col s12">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input wire:model="usernameInstagram" id="usernameInstagram"
+                                <input wire:model="username" id="username"
                                        type="text" min="3" class="" autocomplete="off">
-                                @error('usernameInstagram')
+                                @error('username')
                                 <div class="error">{{ $message }}</div> @enderror
-                                <label for="usernameInstagram" class="active">{{ __('Usuário') }}</label>
+                                <label for="username" class="active">{{ __('Usuário') }}</label>
                             </div>
                             <div class="row input-field col s12">
                                 <i class="material-icons prefix">vpn_key</i>
-                                <input wire:model="passwordInstagram" type="password" class="" autocomplete="off">
-                                @error('passwordInstagram')
+                                <input wire:model="password" id="password" type="password" class="" autocomplete="off">
+                                @error('password')
                                 <div class="error ">{{ $message }}</div> @enderror
-                                <label for="passwordInstagram" class="active">{{ __('Senha') }}</label>
+                                <label for="password" class="active">{{ __('Senha') }}</label>
                             </div>
                             <div class="row col offset-s8 s4">
                                 <button type="submit" class="btn right">{{ __('Sincronizar') }}</button>

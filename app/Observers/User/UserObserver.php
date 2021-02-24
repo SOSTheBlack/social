@@ -24,5 +24,6 @@ class UserObserver
         $createdObserver = new UserCreatedObserver($user);
 
         $createdObserver->saveGravatarInProfile();
+        $createdObserver->createEnterprise();
     }
 }

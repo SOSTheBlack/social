@@ -13,3 +13,13 @@ function user(): Authenticatable|User
 {
     return auth()->user();
 }
+
+function instaGenerateCsrfToken()
+{
+    return md5(uniqid());
+}
+
+function instaGeneratePasswordHash(string $password)
+{
+    return vsprintf('#PWD_INSTAGRAM_BROWSER:0:'.time().':%s', [$password]);
+}

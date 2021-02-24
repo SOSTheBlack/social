@@ -4,6 +4,7 @@ namespace App\Observers\User\Resources;
 
 use App\Entities\User;
 use Creativeorange\Gravatar\Exceptions\InvalidEmailException;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Throwable;
 
@@ -18,6 +19,10 @@ class UserCreatedObserver
      * @var User
      */
     private User $user;
+    /**
+     * @var DB
+     */
+    private DB $db;
 
     /**
      * UserCreatedObserver constructor.
@@ -50,6 +55,15 @@ class UserCreatedObserver
             $avatar = asset('/images/avatar/avatar-0.png', true);
         } finally {
             $this->user->profile()->updateOrCreate([], ['avatar' => $avatar]);
+        }
+    }
+
+    public function createEnterprise(): void
+    {
+        try {
+            $this->user->enterprise()->updateOrCreate(['name' => $this->user->name]);
+        } catch (Throwable $exception) {
+            dd($exception);
         }
     }
 }
