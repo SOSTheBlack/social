@@ -19,6 +19,7 @@ class UserCreatedObserver
      * @var User
      */
     private User $user;
+
     /**
      * @var DB
      */
@@ -61,9 +62,9 @@ class UserCreatedObserver
     public function createEnterprise(): void
     {
         try {
-            $this->user->enterprise()->updateOrCreate(['name' => $this->user->name]);
+            $this->user->enterprise()->updateOrCreate(['user_id' => $this->user->id, 'name' => $this->user->name]);
         } catch (Throwable $exception) {
-            dd($exception);
+            #TODO: send to sentry.
         }
     }
 }
