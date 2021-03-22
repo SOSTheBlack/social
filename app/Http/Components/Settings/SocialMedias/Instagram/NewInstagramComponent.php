@@ -2,13 +2,13 @@
 
 namespace App\Http\Components\Settings\SocialMedias\Instagram;
 
-use App\Entities\InstagramUser;
+use App\Entities\SocialMedia;
 use App\Http\Components\Settings\SocialMedias\SocialMediaComponent;
-use App\Services\Instagram\Instagram;
+use App\SocialMedias\Instagram\Instagram;
 use Illuminate\Contracts\View\View;
 use Illuminate\Validation\ValidationException;
 
-use function App\Services\Instagram\generateCsrfToken;
+use function App\SocialMedias\Instagram\generateCsrfToken;
 
 /**
  * Class NewInstagramComponent
@@ -17,6 +17,8 @@ use function App\Services\Instagram\generateCsrfToken;
  */
 class NewInstagramComponent extends SocialMediaComponent
 {
+    use NewInstagramTrait;
+
     /**
      * Title of Page.
      *
@@ -75,26 +77,16 @@ class NewInstagramComponent extends SocialMediaComponent
 
         $responseLogin = $instagram->auth()->login($this->username, $this->password);
 
-        $cookieString = '';
-        foreach (collect($responseLogin->cookies()->toArray()) as $cookie) {
-            $cookieString .= vsprintf('; %s=%s', [$cookie['Name'], $cookie['Value']]);
+        $headers = $this->structureHeaders($responseLogin->cookies()->toArray());
 
-            if ($cookie['Name'] === 'csrftoken') {
-                $csrftoken = $cookie['Value'];
-            }
-        }
-
-        $headers = [
-            'cookie'      => $cookieString,
-            'referer'     => 'https://www.instagram.com/',
-            'x-csrftoken' => $csrftoken ?? generateCsrfToken(),
-            'user-agent'  => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4421.5 Safari/537.36',
-        ];
+//        $this->socialMediaAccountRepository->create([
+//            'social_media_id' => SocialMedia::
+//                                                    ]);
 
         $instagramUser = new InstagramUser();
         $instagramUser->id = $responseLogin->userId;
         $instagramUser->username = $this->username;
-        $instagramUser->headers = $headers;
+        $instagramUser->headers = $this->structureHeaders($responseLogin->cookies()->toArray());
 
         $instagramUser->saveOrFail();
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Instagram;
+namespace App\SocialMedias\Instagram;
 
 function generateCsrfToken()
 {

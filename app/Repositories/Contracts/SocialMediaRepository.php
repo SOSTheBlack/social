@@ -11,5 +11,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  */
 interface SocialMediaRepository extends RepositoryInterface
 {
-    //
+    
 }

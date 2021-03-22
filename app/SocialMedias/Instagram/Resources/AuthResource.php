@@ -1,15 +1,16 @@
 <?php
 
+namespace App\SocialMedias\Instagram\Resources;
 
-namespace App\Services\Instagram\Resources;
-
-
-use App\Services\Instagram\Instagram;
-
+use App\SocialMedias\Instagram\Instagram;
 use Illuminate\Http\Client\Response;
 
-use function App\Services\Instagram\generateCsrfToken;
+use function App\SocialMedias\Instagram\generateCsrfToken;
 
+/**
+ * Class AuthResource
+ * @package App\SocialMedias\Instagram\Resources
+ */
 class AuthResource
 {
     /**
@@ -32,7 +33,7 @@ class AuthResource
     {
         $headers = [
             'referer'     => 'https://www.instagram.com/',
-            'x-csrftoken' => instaGenerateCsrfToken(),
+            'x-csrftoken' => 1,
             'user-agent'  => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36',
         ];
 

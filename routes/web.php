@@ -8,9 +8,13 @@ use Illuminate\Support\Facades\Http;
 use Phpfastcache\Helper\Psr16Adapter;
 
 Route::get('test', function () {
-    $instagramApi = new App\Services\Instagram\Instagram();
+//    $instagramApi = new App\SocialMedias\Instagram\Instagram();
+//
+//    dd($instagramApi->auth()->login('buzzinasocial', '250863'));
 
-    dd($instagramApi->auth()->login('buzzinasocial', '250863'));
+    dd(
+        app(\App\Repositories\Contracts\SocialMediaRepository::class)->findWhereOrFail(['slug' => 'instagram'])
+    );
 });
 
 Route::get('/test-ok', function () {

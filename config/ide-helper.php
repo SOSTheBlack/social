@@ -123,7 +123,7 @@ return [
     | for models.
     |
     | glob patterns are supported to easier reach models in sub-directories,
-    | e.g. `app/Services/* /Models` (without the space)
+    | e.g. `app/SocialMedias/* /Models` (without the space)
     |
     */
 

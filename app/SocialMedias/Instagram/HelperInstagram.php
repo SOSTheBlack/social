@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Services\Instagram;
+namespace App\SocialMedias\Instagram;
 
 use JetBrains\PhpStorm\Pure;
 
 /**
  * Trait HelperInstagram
  *
- * @package App\Services\Instagram
+ * @package App\SocialMedias\Instagram
  */
 trait HelperInstagram
 {
