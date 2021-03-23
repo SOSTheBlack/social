@@ -30,22 +30,30 @@ use Spatie\Permission\Traits\HasRoles;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
+ * @property int|null $enterprise_id
  * @property-read Collection|Client[] $clients
  * @property-read int|null $clients_count
+ * @property-read \App\Entities\Enterprise|null $enterprise
  * @property-read DatabaseNotificationCollection|DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
- * @property-read Collection|Profile[] $profile
- * @property-read int|null $profile_count
+ * @property-read Collection|\App\Entities\Permission[] $permissions
+ * @property-read int|null $permissions_count
+ * @property-read \App\Entities\Profile|null $profile
+ * @property-read Collection|\App\Entities\Role[] $roles
+ * @property-read int|null $roles_count
  * @property-read Collection|Token[] $tokens
  * @property-read int|null $tokens_count
  * @method static Builder|User newModelQuery()
  * @method static Builder|User newQuery()
  * @method static \Illuminate\Database\Query\Builder|User onlyTrashed()
+ * @method static Builder|User permission($permissions)
  * @method static Builder|User query()
+ * @method static Builder|User role($roles, $guard = null)
  * @method static Builder|User whereCreatedAt($value)
  * @method static Builder|User whereDeletedAt($value)
  * @method static Builder|User whereEmail($value)
  * @method static Builder|User whereEmailVerifiedAt($value)
+ * @method static Builder|User whereEnterpriseId($value)
  * @method static Builder|User whereId($value)
  * @method static Builder|User whereName($value)
  * @method static Builder|User wherePassword($value)
@@ -54,12 +62,6 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static \Illuminate\Database\Query\Builder|User withTrashed()
  * @method static \Illuminate\Database\Query\Builder|User withoutTrashed()
  * @mixin Eloquent
- * @property-read Collection|Permission[] $permissions
- * @property-read int|null $permissions_count
- * @property-read Collection|Role[] $roles
- * @property-read int|null $roles_count
- * @method static Builder|User permission($permissions)
- * @method static Builder|User role($roles, $guard = null)
  */
 class User extends Authenticatable implements MustVerifyEmail
 {

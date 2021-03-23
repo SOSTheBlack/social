@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  * Class ProfileFactory
  *
  * @package Database\Factories
+ *
  * @mixin Profile
  */
 class ProfileFactory extends Factory
@@ -30,7 +31,7 @@ class ProfileFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-             'avatar' => 'ddd'
+            'avatar' => $this->faker->imageUrl(),
         ];
     }
 }

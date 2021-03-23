@@ -14,9 +14,6 @@ use Prettus\Repository\Traits\CacheableRepository;
 /**
  * Class SocialMediaRepositoryEloquent.
  *
- * @method array|null firstWhereOrFail(array $where, array $columns = ['*'])
- * @method array|null createOrFail(array $attributes)
- *
  * @package namespace App\Repositories;
  */
 class SocialMediaRepositoryEloquent extends BaseRepository implements SocialMediaRepository, CacheableInterface

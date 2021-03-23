@@ -2,8 +2,9 @@
 
 namespace App\Transformers;
 
-use League\Fractal\TransformerAbstract;
 use App\Entities\SocialMedia;
+use JetBrains\PhpStorm\ArrayShape;
+use League\Fractal\TransformerAbstract;
 
 /**
  * Class SocialMediaTransformer.
@@ -15,19 +16,31 @@ class SocialMediaTransformer extends TransformerAbstract
     /**
      * Transform the SocialMedia entity.
      *
-     * @param \App\Entities\SocialMedia $model
+     * @param  SocialMedia  $socialMedia
      *
      * @return array
      */
-    public function transform(SocialMedia $model)
+    #[ArrayShape([
+        'id' => "int",
+        'name' => "string",
+        'slug' => "string",
+        'description' => "string",
+        'created_at' => "string",
+        'updated_at' => "string",
+        'deleted_at' => "string"
+    ])]
+    public function transform(SocialMedia $socialMedia): array
     {
+        return $socialMedia->toArray();
+
         return [
-            'id'         => (int) $model->id,
-
-            /* place your other model properties here */
-
-            'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            'id' => (int)$socialMedia->id,
+            'name' => $socialMedia->name,
+            'slug' => $socialMedia->slug,
+            'description' => $socialMedia->description,
+            'created_at' => $socialMedia->created_at->toW3cString(),
+            'updated_at' => $socialMedia->updated_at->toW3cString(),
+            'deleted_at' => $socialMedia->deleted_at->toW3cString()
         ];
     }
 }

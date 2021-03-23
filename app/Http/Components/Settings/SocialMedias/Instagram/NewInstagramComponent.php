@@ -6,7 +6,10 @@ use App\Http\Components\Settings\SocialMedias\SocialMediaComponent;
 use App\SocialMedias\Instagram\Instagram;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Client\Response;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\ValidationException;
+
+use function redirect;
 
 /**
  * Class NewInstagramComponent
@@ -28,20 +31,24 @@ class NewInstagramComponent extends SocialMediaComponent
      * @var string
      */
     public string $username = '';
+
+    /**
+     * @var string
+     */
     public string $password = '';
 
     /**
      * @var string[][]
      */
-    protected $rules
-        = [
-            'username' => ['required', 'string'],
-            'password' => ['required', 'string'],
-        ];
-    /**
-     * @var Instagram
-     */
-    private Instagram $instagramService;
+    protected $rules = [
+        'username' => ['required', 'string'],
+        'password' => ['required', 'string'],
+    ];
+
+    public function __construct($id = null)
+    {
+        parent::__construct($id);
+    }
 
     /**
      * @param $propertyName
@@ -60,8 +67,6 @@ class NewInstagramComponent extends SocialMediaComponent
      */
     public function mount(): void
     {
-        $this->instagramService = new Instagram();
-
         $this->setPageTitle(self::PAGE_TITLE)->pushBreadcrumbs(self::PAGE_TITLE);
 
         parent::mount();
@@ -75,16 +80,29 @@ class NewInstagramComponent extends SocialMediaComponent
         return view('components.settings.social_medias.instagram.new-component');
     }
 
-    public function submit()
+    /**
+     * @return RedirectResponse
+     */
+    public function submit(): RedirectResponse
     {
-        $responseLogin = $this->instagramService->auth()->login($this->username, $this->password);
+        $responseLogin = (new Instagram())->auth()->login($this->username, $this->password);
 
         $this->createSocialMediaAccount($responseLogin);
+
+        return redirect()->route('home');
     }
 
     private function createSocialMediaAccount(Response $responseLogin)
     {
         $body = $responseLogin->object();
+
+        if ($body->user === false) {
+            #TODO usuário não encontrado
+        } elseif ($body->authenticated === false) {
+            #TODO senha incorreta
+        }
+
+        dump($body);
         $headers = $this->structureHeaders($responseLogin->cookies()->toArray());
 
         $socialMedia = $this->socialMediaRepository->firstWhereOrFail(['slug' => Instagram::SLUG], ['id']);

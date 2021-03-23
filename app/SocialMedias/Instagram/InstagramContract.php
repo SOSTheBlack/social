@@ -10,6 +10,17 @@ namespace App\SocialMedias\Instagram;
  */
 interface InstagramContract
 {
+    /**
+     * Name of integration.
+     *
+     * @string
+     */
     public const NAME = 'Instagram';
+
+    /**
+     * Slug of integration.
+     *
+     * @string
+     */
     public const SLUG = 'instagram';
 }
