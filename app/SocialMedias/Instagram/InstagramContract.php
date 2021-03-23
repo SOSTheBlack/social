@@ -10,5 +10,6 @@ namespace App\SocialMedias\Instagram;
  */
 interface InstagramContract
 {
+    public const NAME = 'Instagram';
     public const SLUG = 'instagram';
 }

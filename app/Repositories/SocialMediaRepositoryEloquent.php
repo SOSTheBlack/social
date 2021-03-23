@@ -3,18 +3,21 @@
 namespace App\Repositories;
 
 use App\Entities\SocialMedia;
+use App\Presenters\SocialMediaPresenter;
 use App\Repositories\Contracts\SocialMediaRepository;
 use App\Validators\SocialMediaValidator;
 use Prettus\Repository\Contracts\CacheableInterface;
 use Prettus\Repository\Criteria\RequestCriteria;
+use Prettus\Repository\Exceptions\RepositoryException;
 use Prettus\Repository\Traits\CacheableRepository;
 
 /**
  * Class SocialMediaRepositoryEloquent.
  *
- * @package namespace App\Repositories;
+ * @method array|null firstWhereOrFail(array $where, array $columns = ['*'])
+ * @method array|null createOrFail(array $attributes)
  *
- * @method SocialMedia firstWhereOrFail(array $where, array $columns = ['*'])
+ * @package namespace App\Repositories;
  */
 class SocialMediaRepositoryEloquent extends BaseRepository implements SocialMediaRepository, CacheableInterface
 {
@@ -39,14 +42,31 @@ class SocialMediaRepositoryEloquent extends BaseRepository implements SocialMedi
 
     /**
      * Boot up the repository, pushing criteria
+     *
+     * @throws RepositoryException
      */
-    public function boot()
+    public function boot(): void
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
-    public function __call(string $name, array $arguments)
+    /**
+     * Specify Presenter class name
+     *
+     * @return string
+     */
+    public function presenter(): string
     {
-        // TODO: Implement @method  firstWhereOrFail(array $where, array $columns = ['*'])
+        return SocialMediaPresenter::class;
+    }
+
+    /**
+     * Specify Validator class name
+     *
+     * @return string
+     */
+    public function validator(): string
+    {
+        return SocialMediaValidator::class;
     }
 }

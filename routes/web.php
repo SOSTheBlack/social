@@ -8,12 +8,8 @@ use Illuminate\Support\Facades\Http;
 use Phpfastcache\Helper\Psr16Adapter;
 
 Route::get('test', function () {
-
     dd(
-        $var = encrypt('1234567'),
-        $var,
-        decrypt($var),
-        app(\App\Repositories\Contracts\SocialMediaRepository::class)->firstWhereOrFail(['slug' => 'instagram'])
+        app(\App\Repositories\Contracts\SocialMediaRepository::class)->firstWhere(['slug' => 'instagram'])
     );
 //    $instagramApi = new App\SocialMedias\Instagram\Instagram();
 //
