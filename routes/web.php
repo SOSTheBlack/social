@@ -8,13 +8,17 @@ use Illuminate\Support\Facades\Http;
 use Phpfastcache\Helper\Psr16Adapter;
 
 Route::get('test', function () {
+
+    dd(
+        $var = encrypt('1234567'),
+        $var,
+        decrypt($var),
+        app(\App\Repositories\Contracts\SocialMediaRepository::class)->firstWhereOrFail(['slug' => 'instagram'])
+    );
 //    $instagramApi = new App\SocialMedias\Instagram\Instagram();
 //
 //    dd($instagramApi->auth()->login('buzzinasocial', '250863'));
 
-    dd(
-        app(\App\Repositories\Contracts\SocialMediaRepository::class)->findWhereOrFail(['slug' => 'instagram'])
-    );
 });
 
 Route::get('/test-ok', function () {

@@ -6,7 +6,6 @@ use Eloquent;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -55,9 +54,9 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static \Illuminate\Database\Query\Builder|User withTrashed()
  * @method static \Illuminate\Database\Query\Builder|User withoutTrashed()
  * @mixin Eloquent
- * @property-read Collection|\App\Entities\Permission[] $permissions
+ * @property-read Collection|Permission[] $permissions
  * @property-read int|null $permissions_count
- * @property-read Collection|\App\Entities\Role[] $roles
+ * @property-read Collection|Role[] $roles
  * @property-read int|null $roles_count
  * @method static Builder|User permission($permissions)
  * @method static Builder|User role($roles, $guard = null)
@@ -73,7 +72,9 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable
         = [
-            'name', 'email', 'password',
+            'name',
+            'email',
+            'password',
         ];
 
     /**
@@ -83,7 +84,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $hidden
         = [
-            'password', 'remember_token',
+            'password',
+            'remember_token',
         ];
 
     /**
@@ -106,9 +108,14 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Profile::class);
     }
 
-    public function enterprise(): BelongsTo
+    /**
+     * Define a one-to-one relationship.
+     *
+     * @return HasOne
+     */
+    public function enterprise(): HasOne
     {
-        return $this->belongsTo(Enterprise::class);
+        return $this->hasOne(Enterprise::class);
     }
 
 }

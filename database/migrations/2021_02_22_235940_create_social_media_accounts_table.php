@@ -17,10 +17,11 @@ class CreateSocialMediaAccountsTable extends Migration
 	{
 		Schema::create('social_media_accounts', function(Blueprint $table) {
             $table->increments('id');
+            $table->unsignedBigInteger('enterprise_id')->constrained('enterprises');
             $table->unsignedInteger('social_media_id')->constrained('social_medias');
-            $table->unsignedBigInteger('enterprise_id')->constrained();
             $table->bigInteger('ref_id')->constrained();
             $table->string('username')->nullable();
+            $table->json('settings');
 
             $table->timestamps();
             $table->softDeletes();

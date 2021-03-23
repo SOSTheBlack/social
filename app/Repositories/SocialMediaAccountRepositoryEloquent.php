@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\Contracts\SocialMediaAccountRepository;
 use App\Entities\SocialMediaAccount;
@@ -11,7 +10,9 @@ use App\Validators\SocialMediaAccountValidator;
 /**
  * Class SocialMediaAccountRepositoryEloquent.
  *
- * @package namespace App\Repositories;
+ * @package namespace App\Repositories
+ *
+ * @method   firstWhereOrFail(array $where, array $columns = ['*'])
  */
 class SocialMediaAccountRepositoryEloquent extends BaseRepository implements SocialMediaAccountRepository
 {
@@ -25,8 +26,6 @@ class SocialMediaAccountRepositoryEloquent extends BaseRepository implements Soc
         return SocialMediaAccount::class;
     }
 
-    
-
     /**
      * Boot up the repository, pushing criteria
      */
@@ -34,5 +33,4 @@ class SocialMediaAccountRepositoryEloquent extends BaseRepository implements Soc
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
 }

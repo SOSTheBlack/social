@@ -10,5 +10,5 @@ namespace App\SocialMedias\Instagram;
  */
 interface InstagramContract
 {
-    protected const SLUG = 'instagram';
+    public const SLUG = 'instagram';
 }

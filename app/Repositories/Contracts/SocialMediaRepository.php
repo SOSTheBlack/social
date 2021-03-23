@@ -9,7 +9,7 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  *
  * @package namespace App\Repositories\Contracts;
  */
-interface SocialMediaRepository extends RepositoryInterface
+interface SocialMediaRepository extends RepositoryContract
 {
-    
+
 }

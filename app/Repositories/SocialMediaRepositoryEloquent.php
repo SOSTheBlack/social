@@ -13,6 +13,8 @@ use Prettus\Repository\Traits\CacheableRepository;
  * Class SocialMediaRepositoryEloquent.
  *
  * @package namespace App\Repositories;
+ *
+ * @method SocialMedia firstWhereOrFail(array $where, array $columns = ['*'])
  */
 class SocialMediaRepositoryEloquent extends BaseRepository implements SocialMediaRepository, CacheableInterface
 {
@@ -41,5 +43,10 @@ class SocialMediaRepositoryEloquent extends BaseRepository implements SocialMedi
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
+    }
+
+    public function __call(string $name, array $arguments)
+    {
+        // TODO: Implement @method  firstWhereOrFail(array $where, array $columns = ['*'])
     }
 }

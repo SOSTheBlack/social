@@ -2,13 +2,11 @@
 
 namespace App\Http\Components\Settings\SocialMedias\Instagram;
 
-use App\Entities\SocialMedia;
 use App\Http\Components\Settings\SocialMedias\SocialMediaComponent;
 use App\SocialMedias\Instagram\Instagram;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Client\Response;
 use Illuminate\Validation\ValidationException;
-
-use function App\SocialMedias\Instagram\generateCsrfToken;
 
 /**
  * Class NewInstagramComponent
@@ -40,6 +38,10 @@ class NewInstagramComponent extends SocialMediaComponent
             'username' => ['required', 'string'],
             'password' => ['required', 'string'],
         ];
+    /**
+     * @var Instagram
+     */
+    private Instagram $instagramService;
 
     /**
      * @param $propertyName
@@ -58,6 +60,8 @@ class NewInstagramComponent extends SocialMediaComponent
      */
     public function mount(): void
     {
+        $this->instagramService = new Instagram();
+
         $this->setPageTitle(self::PAGE_TITLE)->pushBreadcrumbs(self::PAGE_TITLE);
 
         parent::mount();
@@ -73,21 +77,29 @@ class NewInstagramComponent extends SocialMediaComponent
 
     public function submit()
     {
-        $instagram = new Instagram();
+        $responseLogin = $this->instagramService->auth()->login($this->username, $this->password);
 
-        $responseLogin = $instagram->auth()->login($this->username, $this->password);
+        $this->createSocialMediaAccount($responseLogin);
+    }
 
+    private function createSocialMediaAccount(Response $responseLogin)
+    {
+        $body = $responseLogin->object();
         $headers = $this->structureHeaders($responseLogin->cookies()->toArray());
 
-//        $this->socialMediaAccountRepository->create([
-//            'social_media_id' => SocialMedia::
-//                                                    ]);
+        $socialMedia = $this->socialMediaRepository->firstWhereOrFail(['slug' => Instagram::SLUG], ['id']);
 
-        $instagramUser = new InstagramUser();
-        $instagramUser->id = $responseLogin->userId;
-        $instagramUser->username = $this->username;
-        $instagramUser->headers = $this->structureHeaders($responseLogin->cookies()->toArray());
-
-        $instagramUser->saveOrFail();
+        return $this->socialMediaAccountRepository->createOrFail(
+            [
+                'social_media_id' => $socialMedia,
+                'enterprise_id' => app('auth')->user()->enterprise->id,
+                'ref_id' => $body->userId,
+                'username' => $this->username,
+                'settings' => [
+                    'headers' => $headers,
+                    'password' => encrypt($this->password)
+                ]
+            ]
+        );
     }
 }

@@ -3,20 +3,41 @@
 
 namespace App\Repositories;
 
+use App\Repositories\Contracts\RepositoryContract;
 use App\Repositories\Exceptions\ModelNotFoundException;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection as CollectionDatabase;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Prettus\Repository\Eloquent\BaseRepository as Repository;
+use Prettus\Repository\Exceptions\RepositoryException;
 
 /**
  * Class BaseRepository.
  *
  * @package App\Repositories
  */
-abstract class BaseRepository extends Repository
+abstract class BaseRepository extends Repository implements RepositoryContract
 {
+    /**
+     * @param  array  $where
+     * @param  array|string[]  $columns
+     *
+     * @return mixed
+     *
+     * @throws RepositoryException
+     */
+    public function firstWhere(array $where, array $columns = ['*']): mixed
+    {
+        $this->applyCriteria();
+        $this->applyScope();
+
+        $this->applyConditions($where);
+
+        $model = $this->model->first($columns);
+        $this->resetModel();
+
+        return $this->parserResult($model);
+    }
+
     /**
      * Trigger method calls to the model
      *
