@@ -13,13 +13,6 @@ use Illuminate\View\Component;
 class AlertSession extends Component
 {
     /**
-     * Create a new component instance.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * Get the view / contents that represent the component.
      *
      * @return View

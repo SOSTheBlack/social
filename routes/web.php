@@ -7,6 +7,8 @@ use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Http;
 use Phpfastcache\Helper\Psr16Adapter;
 
+App::setLocale('pt_BR');
+
 Route::get('test', function () {
     dd(
         app(\App\Repositories\Contracts\SocialMediaRepository::class)->firstWhere(['slug' => 'instagram'])

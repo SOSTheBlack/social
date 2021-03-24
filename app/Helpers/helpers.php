@@ -14,31 +14,13 @@ function user(): Authenticatable|User
 }
 
 /**
- * @return string
- */
-function instaGenerateCsrfToken(): string
-{
-    return md5(uniqid());
-}
-
-/**
- * @param  string  $password
- *
- * @return string
- */
-function instaGeneratePasswordHash(string $password): string
-{
-    return vsprintf('#PWD_INSTAGRAM_BROWSER:0:'.time().':%s', [$password]);
-}
-
-/**
+ * @param  string|array  $message
  * @param  string  $color
- * @param  string  $message
  * @param  bool  $exit
  *
  * @return void
  */
-function alertSession(string $message, string $color = 'cyan', bool $exit = true): void
+function alertSession(string|array $message, string $color = 'cyan', bool $exit = false): void
 {
     session()->flash('alert', ['color' => $color, 'message' => $message, 'exit' => $exit]);
 }
