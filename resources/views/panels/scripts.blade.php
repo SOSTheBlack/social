@@ -8,6 +8,8 @@
 <script src="{{asset('js/plugins.js')}}"></script>
 <script src="{{asset('js/search.js')}}"></script>
 <script src="{{asset('js/custom/custom-script.js')}}"></script>
+<script src="{{asset('js/scripts/ui-alerts.js')}}"></script>
+<script src="{{asset('js/scripts/advance-ui-toasts.js')}}"></script>
 <!-- END THEME  JS-->
 <!-- BEGIN PAGE LEVEL JS-->
 @yield('page-script')

@@ -34,6 +34,7 @@
       <div class="col s12">
         <div class="container">
           {{-- main page content --}}
+          <x-alert-session />
           {{ $slot }}
           {{-- right sidebar --}}
 {{--          @include('pages.sidebar.right-sidebar')--}}

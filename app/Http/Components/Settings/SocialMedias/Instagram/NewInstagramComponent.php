@@ -83,7 +83,7 @@ class NewInstagramComponent extends SocialMediaComponent
     /**
      * @return RedirectResponse
      */
-    public function submit(): RedirectResponse
+    public function submit()
     {
         $responseLogin = (new Instagram())->auth()->login($this->username, $this->password);
 
