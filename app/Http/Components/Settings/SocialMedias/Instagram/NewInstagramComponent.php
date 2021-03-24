@@ -3,13 +3,9 @@
 namespace App\Http\Components\Settings\SocialMedias\Instagram;
 
 use App\Http\Components\Settings\SocialMedias\SocialMediaComponent;
-use App\SocialMedias\Instagram\Instagram;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Client\Response;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\ValidationException;
-
-use function redirect;
+use Throwable;
 
 /**
  * Class NewInstagramComponent
@@ -40,8 +36,8 @@ class NewInstagramComponent extends SocialMediaComponent
     /**
      * @var string[][]
      */
-    protected $rules = [
-        'username' => ['required', 'string'],
+    protected array $rules = [
+        'username' => ['required', 'string', 'unique:\App\Entities\SocialMediaAccount,username'],
         'password' => ['required', 'string'],
     ];
 
@@ -81,43 +77,20 @@ class NewInstagramComponent extends SocialMediaComponent
     }
 
     /**
-     * @return RedirectResponse
+     * @return void
      */
-    public function submit()
+    public function submit(): void
     {
-        $responseLogin = (new Instagram())->auth()->login($this->username, $this->password);
+        $this->validate();
 
-        $this->createSocialMediaAccount($responseLogin);
-
-        return redirect()->route('home');
-    }
-
-    private function createSocialMediaAccount(Response $responseLogin)
-    {
-        $body = $responseLogin->object();
-
-        if ($body->user === false) {
-            #TODO usuário não encontrado
-        } elseif ($body->authenticated === false) {
-            #TODO senha incorreta
+        try {
+            $responseLogin = $this->singInInstagram();
+            $this->createAccount($responseLogin);
+            #TODO ??? buscar informações basicas
+        } catch (Throwable $exception) {
+            return;
         }
 
-        dump($body);
-        $headers = $this->structureHeaders($responseLogin->cookies()->toArray());
-
-        $socialMedia = $this->socialMediaRepository->firstWhereOrFail(['slug' => Instagram::SLUG], ['id']);
-
-        return $this->socialMediaAccountRepository->createOrFail(
-            [
-                'social_media_id' => $socialMedia,
-                'enterprise_id' => app('auth')->user()->enterprise->id,
-                'ref_id' => $body->userId,
-                'username' => $this->username,
-                'settings' => [
-                    'headers' => $headers,
-                    'password' => encrypt($this->password)
-                ]
-            ]
-        );
+        alertSession('Instagram sincronizado com sucesso!!!', 'green');
     }
 }

@@ -10,7 +10,8 @@
                         </div>
                     </div>
                 </div>
-
+                <x-errors/>
+                <x-alert-session/>
                 <div id="view-icon-prefixes" class="active">
                     <blockquote class="bold Flow Text">
                         {{ __('Antes de se conectar, certifique-se de que você tem acesso ao email ou celular registrado do seu

@@ -31,7 +31,8 @@ class SocialMediaAccountTransformer extends TransformerAbstract
         'updated_at' => "string",
         'deleted_at' => "string"
     ])]
-    public function transform(SocialMediaAccount $socialMediaAccount): array {
+    public function transform(SocialMediaAccount $socialMediaAccount): array
+    {
         return [
             'id' => (int)$socialMediaAccount->id,
             'enterprise_id' => (int)$socialMediaAccount->enterprise_id,
@@ -41,7 +42,7 @@ class SocialMediaAccountTransformer extends TransformerAbstract
             'settings' => $socialMediaAccount->settings,
             'created_at' => $socialMediaAccount->created_at->toW3cString(),
             'updated_at' => $socialMediaAccount->updated_at->toW3cString(),
-            'deleted_at' => $socialMediaAccount->deleted_at->toW3cString()
+            'deleted_at' => optional($socialMediaAccount->deleted_at)->toW3cString()
         ];
     }
 }

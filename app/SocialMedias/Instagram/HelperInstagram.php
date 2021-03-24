@@ -11,12 +11,24 @@ use JetBrains\PhpStorm\Pure;
  */
 trait HelperInstagram
 {
+    public string $formatPassword = '#PWD_INSTAGRAM_BROWSER:0:%u:%s';
+
     /**
      * @return string
      */
     #[Pure]
-    protected function generateCsrfToken(): string
+    public function generateCsrfToken(): string
     {
         return md5(uniqid());
+    }
+
+    /**
+     * @param  string  $password
+     *
+     * @return string
+     */
+    public function generatePasswordHash(string $password): string
+    {
+        return vsprintf($this->formatPassword, [time(), $password]);
     }
 }
