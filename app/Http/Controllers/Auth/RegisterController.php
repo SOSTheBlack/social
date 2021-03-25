@@ -31,12 +31,11 @@ class RegisterController extends Controller
     /**
      * @var array
      */
-    private array $rules
-        = [
-            'name'     => ['required', 'string', 'max:255'],
-            'email'    => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ];
+    private array $rules = [
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
+    ];
 
     /**
      * Create a new controller instance.
@@ -46,6 +45,22 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    /**
+     * @return Factory|View
+     */
+    public function showRegistrationForm(): Factory|View
+    {
+        $pageConfigs = ['bodyCustomClass' => 'register-bg', 'isCustomizer' => false];
+
+        return view(
+            '/auth/register',
+            [
+                'pageConfigs' => $pageConfigs,
+                'pageTitle' => trans('locale.auth.register.page-title')
+            ]
+        );
     }
 
     /**
@@ -69,27 +84,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data): User
     {
-        $user = User::create([
-            'name'     => $data['name'],
-            'email'    => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $user = User::create(
+            [
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+            ]
+        );
 
         $user->givePermissionTo('free_trial');
 
         return $user;
-    }
-
-    /**
-     * @return Factory|View
-     */
-    public function showRegistrationForm()
-    {
-        $pageConfigs = ['bodyCustomClass' => 'register-bg', 'isCustomizer' => false];
-
-        return view('/auth/register', [
-            'pageConfigs' => $pageConfigs,
-            'pageTitle' => trans('locale.auth.register.page-title')
-        ]);
     }
 }
