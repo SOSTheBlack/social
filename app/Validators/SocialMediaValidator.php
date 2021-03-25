@@ -20,11 +20,13 @@ class SocialMediaValidator extends LaravelValidator
      */
     protected $rules = [
         ValidatorInterface::RULE_CREATE => [
+            'id' => ['string', 'uuid'],
             'name' => ['required', 'string', 'max:255', 'min:3'],
             'slug' => ['required', 'string', 'max:255', 'min:3'],
             'description' => ['required', 'string', 'min:3']
         ],
         ValidatorInterface::RULE_UPDATE => [
+            'id' => ['string', 'uuid'],
             'name' => ['string', 'max:255', 'min:3'],
             'slug' => ['string', 'max:255', 'min:3'],
             'description' => ['string', 'min:3']

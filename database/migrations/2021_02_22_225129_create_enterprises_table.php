@@ -16,8 +16,8 @@ class CreateEnterprisesTable extends Migration
     public function up()
     {
         Schema::create('enterprises', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id')->unique()->constrained();
+            $table->uuid('id')->primary();
+            $table->foreignUuid('user_id')->unique()->constrained();
             $table->string('name');
             $table->enum('document_type', ['cpf', 'cnpj'])->nullable();
             $table->bigInteger('document')->nullable();

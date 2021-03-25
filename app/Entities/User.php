@@ -16,6 +16,7 @@ use Illuminate\Support\Carbon;
 use Laravel\Passport\Client;
 use Laravel\Passport\HasApiTokens;
 use Laravel\Passport\Token;
+use Ramsey\Uuid\Uuid;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
@@ -33,13 +34,13 @@ use Spatie\Permission\Traits\HasRoles;
  * @property int|null $enterprise_id
  * @property-read Collection|Client[] $clients
  * @property-read int|null $clients_count
- * @property-read \App\Entities\Enterprise|null $enterprise
+ * @property-read Enterprise|null $enterprise
  * @property-read DatabaseNotificationCollection|DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
- * @property-read Collection|\App\Entities\Permission[] $permissions
+ * @property-read Collection|Permission[] $permissions
  * @property-read int|null $permissions_count
- * @property-read \App\Entities\Profile|null $profile
- * @property-read Collection|\App\Entities\Role[] $roles
+ * @property-read Profile|null $profile
+ * @property-read Collection|Role[] $roles
  * @property-read int|null $roles_count
  * @property-read Collection|Token[] $tokens
  * @property-read int|null $tokens_count
@@ -66,6 +67,13 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, Notifiable, SoftDeletes, HasRoles;
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
@@ -95,10 +103,35 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $casts
-        = [
-            'email_verified_at' => 'datetime',
-        ];
+    protected $casts = ['email_verified_at' => 'datetime'];
+
+    /**
+     * The "type" of the primary key ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'string';
+
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var string[]|bool
+     */
+    protected $guarded = [];
+
+    /**
+     *  Setup model event hooks
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(
+            function ($model) {
+                $model->id = (string) Uuid::uuid4();
+            }
+        );
+    }
 
     /**
      * Instantiate a new HasMany relationship.

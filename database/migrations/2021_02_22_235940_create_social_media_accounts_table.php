@@ -16,9 +16,9 @@ class CreateSocialMediaAccountsTable extends Migration
 	public function up()
 	{
 		Schema::create('social_media_accounts', function(Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedBigInteger('enterprise_id')->constrained('enterprises');
-            $table->unsignedInteger('social_media_id')->constrained('social_medias');
+            $table->uuid('id')->primary();
+            $table->foreignUuid('enterprise_id')->constrained('enterprises');
+            $table->foreignUuid('social_media_id')->constrained('social_medias');
             $table->bigInteger('ref_id')->constrained();
             $table->string('username')->nullable();
             $table->json('settings');

@@ -17,7 +17,7 @@ class AddEnterpriseIdColunmInUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('enterprise_id')->nullable()->constrained();
+            $table->foreignUuid('enterprise_id')->nullable()->constrained();
         });
     }
 

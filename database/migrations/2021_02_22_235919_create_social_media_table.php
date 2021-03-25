@@ -16,7 +16,7 @@ class CreateSocialMediaTable extends Migration
     public function up()
     {
         Schema::create('social_medias', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id')->primary();
             $table->string('name');
             $table->string('slug');
             $table->text('description');

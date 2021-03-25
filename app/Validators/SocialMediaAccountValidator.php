@@ -19,14 +19,16 @@ class SocialMediaAccountValidator extends LaravelValidator
      */
     protected $rules = [
         ValidatorInterface::RULE_CREATE => [
-            'enterprise_id' => ['required', 'int', 'exists:\App\Entities\Enterprise,id'],
-            'social_media_id' => ['required', 'int', 'exists:\App\Entities\SocialMedia,id'],
+            'id' => ['string', 'uuid'],
+            'enterprise_id' => ['required', 'string', 'uuid', 'exists:\App\Entities\Enterprise,id'],
+            'social_media_id' => ['required', 'string', 'uuid', 'exists:\App\Entities\SocialMedia,id'],
             'ref_id' => ['required', 'int', 'unique:\App\Entities\SocialMediaAccount,ref_id'],
             'username' => ['required', 'string']
         ],
         ValidatorInterface::RULE_UPDATE => [
-            'enterprise_id' => ['int', 'exists:\App\Entities\Enterprise,id'],
-            'social_media_id' => ['int', 'exists:\App\Entities\SocialMedia,id'],
+            'id' => ['string', 'uuid'],
+            'enterprise_id' => ['int', 'string', 'uuid', 'exists:\App\Entities\Enterprise,id'],
+            'social_media_id' => ['int', 'string', 'uuid', 'exists:\App\Entities\SocialMedia,id'],
             'ref_id' => ['int'],
             'username' => ['string']
         ],
