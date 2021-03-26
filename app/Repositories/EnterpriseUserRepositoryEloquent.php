@@ -2,20 +2,20 @@
 
 namespace App\Repositories;
 
-use App\Entities\User;
-use App\Presenters\UserPresenter;
-use App\Repositories\Contracts\UserRepository;
-use App\Validators\UserValidator;
+use App\Entities\EnterpriseUser;
+use App\Presenters\EnterpriseUserPresenter;
+use App\Repositories\Contracts\EnterpriseUserRepository;
+use App\Validators\EnterpriseUserValidator;
 use Exception;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Exceptions\RepositoryException;
 
 /**
- * Class UserRepositoryEloquent.
+ * Class EnterpriseUserRepositoryEloquent.
  *
  * @package namespace App\Repositories;
  */
-class UserRepositoryEloquent extends BaseRepository implements UserRepository
+class EnterpriseUserRepositoryEloquent extends BaseRepository implements EnterpriseUserRepository
 {
     /**
      * Specify Model class name
@@ -24,7 +24,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
      */
     public function model(): string
     {
-        return User::class;
+        return EnterpriseUser::class;
     }
 
     /**
@@ -32,7 +32,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
      *
      * @throws RepositoryException
      */
-    public function boot(): void
+    public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
@@ -46,16 +46,16 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
      */
     public function validator(): string
     {
-        return UserValidator::class;
+        return EnterpriseUserValidator::class;
     }
 
     /**
-     * Specify Presenter class name.
+     * Specify Presenter class name
      *
      * @return string
      */
     public function presenter(): string
     {
-        return UserPresenter::class;
+        return EnterpriseUserPresenter::class;
     }
 }

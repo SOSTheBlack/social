@@ -3,6 +3,8 @@
 namespace App\Observers\User\Resources;
 
 use App\Entities\User;
+use App\Repositories\Contracts\EnterpriseRepository;
+use App\Repositories\Contracts\ProfileRepository;
 use Creativeorange\Gravatar\Exceptions\InvalidEmailException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -55,16 +57,14 @@ class UserCreatedObserver
         } catch (Throwable $exception) {
             $avatar = asset('/images/avatar/avatar-0.png', true);
         } finally {
-            $this->user->profile()->updateOrCreate([], ['avatar' => $avatar]);
+            app(ProfileRepository::class)
+                ->updateOrCreate(['avatar' => $avatar], ['user_id' => $this->user->id]);
         }
     }
 
     public function createEnterprise(): void
     {
-        try {
-            $this->user->enterprise()->updateOrCreate(['user_id' => $this->user->id, 'name' => $this->user->name]);
-        } catch (Throwable $exception) {
-            #TODO: send to sentry.
-        }
+        dump(app(EnterpriseRepository::class)
+            ->createByUser(user: $this->user->toArray()));
     }
 }

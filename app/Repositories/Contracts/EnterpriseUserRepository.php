@@ -3,11 +3,11 @@
 namespace App\Repositories\Contracts;
 
 /**
- * Interface ProfileRepository.
+ * Interface EnterpriseUserRepository.
  *
  * @package namespace App\Repositories\Contracts;
  */
-interface ProfileRepository extends RepositoryContract
+interface EnterpriseUserRepository extends RepositoryContract
 {
     //
 }

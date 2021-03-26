@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Repositories;
 
 use App\Repositories\Contracts\RepositoryContract;
@@ -13,10 +12,11 @@ use Prettus\Repository\Exceptions\RepositoryException;
 /**
  * Class BaseRepository.
  *
- * @method firstWhereOrFail(array $where, array $columns = ['*'])
- * @method createOrFail(array $attributes)
- *
  * @package App\Repositories
+ *
+ * @method  firstWhereOrFail(array $where, array $columns = ['*'])
+ * @method  createOrFail(array $attributes)
+ *
  */
 abstract class BaseRepository extends Repository implements RepositoryContract
 {
@@ -55,7 +55,7 @@ abstract class BaseRepository extends Repository implements RepositoryContract
     {
         $nameMethod = Str::of($method);
 
-        if (!$nameMethod->endsWith('OrFail')) {
+        if (! $nameMethod->endsWith('OrFail')) {
             return parent::__call($method, $arguments);
         }
 
@@ -64,7 +64,7 @@ abstract class BaseRepository extends Repository implements RepositoryContract
         $modelResponse = $this->$originalMethod(... $arguments);
 
         if (is_null($modelResponse) || ($modelResponse instanceof CollectionDatabase && $modelResponse->isEmpty())) {
-            throw new ModelNotFoundException('No result for model '.$this->model::class);
+            throw new ModelNotFoundException('No result for model ' . $this->model::class);
         }
 
         return $modelResponse;

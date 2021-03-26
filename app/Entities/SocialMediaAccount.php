@@ -10,9 +10,9 @@ use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\SocialMediaAccount
  *
- * @property int $id
- * @property int $enterprise_id
- * @property int $social_media_id
+ * @property string $id
+ * @property string $enterprise_id
+ * @property string $social_media_id
  * @property int $ref_id
  * @property string|null $username
  * @property object $settings

@@ -17,11 +17,11 @@ class CreateEnterprisesTable extends Migration
     {
         Schema::create('enterprises', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id')->unique()->constrained();
             $table->string('name');
             $table->enum('document_type', ['cpf', 'cnpj'])->nullable();
             $table->bigInteger('document')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

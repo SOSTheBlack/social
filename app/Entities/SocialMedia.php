@@ -9,7 +9,7 @@ use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\SocialMedia
  *
- * @property int $id
+ * @property string $id
  * @property string $name
  * @property string $slug
  * @property string $description

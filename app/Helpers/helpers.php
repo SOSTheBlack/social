@@ -24,3 +24,11 @@ function alertSession(string|array $message, string $color = 'cyan', bool $exit 
 {
     session()->flash('alert', ['color' => $color, 'message' => $message, 'exit' => $exit]);
 }
+
+/**
+ * @return string
+ */
+function separator(): string
+{
+    return ' ';
+}

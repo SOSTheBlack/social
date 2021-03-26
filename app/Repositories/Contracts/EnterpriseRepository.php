@@ -2,8 +2,6 @@
 
 namespace App\Repositories\Contracts;
 
-use Prettus\Repository\Contracts\RepositoryInterface;
-
 /**
  * Interface EnterpriseRepository.
  *
@@ -11,5 +9,17 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  */
 interface EnterpriseRepository extends RepositoryContract
 {
-    //
+    /**
+     * @const string
+     */
+    public const SUFFIX_ENTERPRISE = 'LTDA';
+
+    /**
+     * Create a new enterprise.
+     *
+     * @param  array  $user
+     *
+     * @return array
+     */
+    public function createByUser(array $user): array;
 }

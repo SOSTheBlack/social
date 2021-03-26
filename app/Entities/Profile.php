@@ -13,14 +13,14 @@ use Illuminate\Support\Carbon;
 /**
  * App\Entities\Profile
  *
- * @property int $id
- * @property int $user_id
+ * @property string $id
+ * @property string $user_id
  * @property string $avatar
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
- * @property-read User $user
- * @method static ProfileFactory factory(...$parameters)
+ * @property-read \App\Entities\User $user
+ * @method static \Database\Factories\Entities\ProfileFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newQuery()
  * @method static Builder|Profile onlyTrashed()

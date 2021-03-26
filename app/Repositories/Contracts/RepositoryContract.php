@@ -3,6 +3,8 @@
 
 namespace App\Repositories\Contracts;
 
+use Prettus\Repository\Contracts\RepositoryInterface;
+
 /**
  * Class RepositoryContract.
  *
@@ -11,7 +13,7 @@ namespace App\Repositories\Contracts;
  *
  * @package App\Repositories\Contracts
  */
-interface RepositoryContract
+interface RepositoryContract extends RepositoryInterface
 {
 
 }

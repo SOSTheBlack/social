@@ -6,6 +6,7 @@ use Eloquent;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -22,7 +23,7 @@ use Spatie\Permission\Traits\HasRoles;
 /**
  * App\Entities\User
  *
- * @property int $id
+ * @property string $id
  * @property string $name
  * @property string $email
  * @property string $password
@@ -31,16 +32,16 @@ use Spatie\Permission\Traits\HasRoles;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
- * @property int|null $enterprise_id
  * @property-read Collection|Client[] $clients
  * @property-read int|null $clients_count
- * @property-read Enterprise|null $enterprise
+ * @property-read Collection|\App\Entities\Enterprise[] $enterprises
+ * @property-read int|null $enterprises_count
  * @property-read DatabaseNotificationCollection|DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
- * @property-read Collection|Permission[] $permissions
+ * @property-read Collection|\App\Entities\Permission[] $permissions
  * @property-read int|null $permissions_count
- * @property-read Profile|null $profile
- * @property-read Collection|Role[] $roles
+ * @property-read \App\Entities\Profile|null $profile
+ * @property-read Collection|\App\Entities\Role[] $roles
  * @property-read int|null $roles_count
  * @property-read Collection|Token[] $tokens
  * @property-read int|null $tokens_count
@@ -54,7 +55,6 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static Builder|User whereDeletedAt($value)
  * @method static Builder|User whereEmail($value)
  * @method static Builder|User whereEmailVerifiedAt($value)
- * @method static Builder|User whereEnterpriseId($value)
  * @method static Builder|User whereId($value)
  * @method static Builder|User whereName($value)
  * @method static Builder|User wherePassword($value)
@@ -144,13 +144,12 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Define a one-to-one relationship.
+     * Define a many-to-many relationship
      *
-     * @return HasOne
+     * @return BelongsToMany
      */
-    public function enterprise(): HasOne
+    public function enterprises(): BelongsToMany
     {
-        return $this->hasOne(Enterprise::class);
+        return $this->belongsToMany(Enterprise::class)->using(EnterpriseUser::class);
     }
-
 }

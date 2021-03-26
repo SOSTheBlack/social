@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model as BaseModel;
 use Ramsey\Uuid\Uuid;
 
 /**
- * Class Model.
+ * App\Entities\Model
  *
- * @package App\Entities
+ * @method static \Illuminate\Database\Eloquent\Builder|Model newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Model newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Model query()
+ * @mixin \Eloquent
  */
 class Model extends BaseModel
 {
