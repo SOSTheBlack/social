@@ -39,7 +39,7 @@ class ForgotPasswordController extends Controller
 
         return view('/auth/passwords/email', [
           'pageConfigs' => $pageConfigs,
-          'pageTitle' => trans('locale.auth.forgot-password.page-title')
+          'pageTitle' => __('Perdeu sua senha?')
         ]);
       }
 }

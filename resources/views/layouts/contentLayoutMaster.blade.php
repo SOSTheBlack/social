@@ -24,7 +24,7 @@ $configData = TemplateHelper::applClasses();
   <link rel="shortcut icon" type="image/x-icon" href="images/favicon/favicon-32x32.png">
 
   {{-- Include core + vendor Styles --}}
-  @livewireStyles
+{{--  @livewireStyles--}}
   @include('panels.styles')
 
 </head>
@@ -39,5 +39,5 @@ $configData = TemplateHelper::applClasses();
 {{-- if mainLaoutType is empty or not set then its print below line  --}}
 <h1>{{'mainLayoutType Option is empty in config custom.php file.'}}</h1>
 @endif
-@livewireScripts
+{{--@livewireScripts--}}
 </html>

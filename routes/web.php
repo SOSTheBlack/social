@@ -10,12 +10,7 @@ use Phpfastcache\Helper\Psr16Adapter;
 App::setLocale('pt_BR');
 
 Route::get('test', function () {
-    dd(
-        app(\App\Repositories\Contracts\SocialMediaRepository::class)->firstWhere(['slug' => 'instagram'])
-    );
-//    $instagramApi = new App\SocialMedias\Instagram\Instagram();
-//
-//    dd($instagramApi->auth()->login('buzzinasocial', '250863'));
+
 
 });
 
@@ -68,6 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/')->uses(HomeComponent::class)->name('home');
 
     Route::get('/settings/social_medias/instagram/new')->uses(NewInstagramComponent::class)->name('settings.social_medias.instagram.new');
+    Route::get('/settings/social_medias/instagram/{socialMediaAccount}/edit')->uses(NewInstagramComponent::class)->name('settings.social_medias.instagram.new');
 
     Route::get('/blank-page')->uses(BlankPageComponent::class)->name('blank-page');
 });

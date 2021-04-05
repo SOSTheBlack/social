@@ -8,6 +8,7 @@ use Prettus\Repository\Contracts\RepositoryInterface;
 /**
  * Class RepositoryContract.
  *
+ * @method findOrFail($id, $columns = ['*'])
  * @method firstWhereOrFail(array $where, array $columns = ['*'])
  * @method createOrFail(array $attributes)
  *
@@ -15,5 +16,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  */
 interface RepositoryContract extends RepositoryInterface
 {
-
+    //
 }

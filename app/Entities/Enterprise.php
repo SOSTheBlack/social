@@ -55,6 +55,6 @@ class Enterprise extends Model implements Transformable
      */
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(Enterprise::class)->using(EnterpriseUser::class);
+        return $this->belongsToMany(User::class)->using(EnterpriseUser::class);
     }
 }

@@ -50,7 +50,7 @@ class ResetPasswordController extends Controller
         $pageConfigs = ['bodyCustomClass' => 'login-bg', 'isCustomizer' => false];
 
         return view('auth.passwords.reset')->with(
-            ['token' => $token, 'email' => $request->email, 'pageConfigs' => $pageConfigs, 'pageTitle' => trans('locale.Forgot Your Password')]
+            ['token' => $token, 'email' => $request->email, 'pageConfigs' => $pageConfigs, 'pageTitle' => 'Perdeu sua senha ?']
         );
     }
 }

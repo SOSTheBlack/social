@@ -34,17 +34,22 @@ class NewInstagramComponent extends SocialMediaComponent
     public string $password = '';
 
     /**
+     * @var mixed
+     */
+    public array $enterprises;
+
+    /**
+     * @var mixed
+     */
+    public ?string $enterpriseId = null;
+
+    /**
      * @var string[][]
      */
     protected array $rules = [
         'username' => ['required', 'string', 'unique:\App\Entities\SocialMediaAccount,username'],
         'password' => ['required', 'string'],
     ];
-
-    public function __construct($id = null)
-    {
-        parent::__construct($id);
-    }
 
     /**
      * @param $propertyName
@@ -73,6 +78,8 @@ class NewInstagramComponent extends SocialMediaComponent
      */
     public function render(): View
     {
+        $this->defineEnterprise();
+
         return view('components.settings.social_medias.instagram.new-component');
     }
 
@@ -86,11 +93,11 @@ class NewInstagramComponent extends SocialMediaComponent
         try {
             $responseLogin = $this->singInInstagram();
             $this->createAccount($responseLogin);
-            #TODO ??? buscar informações basicas
         } catch (Throwable $exception) {
             return;
         }
 
         alertSession('Instagram sincronizado com sucesso!!!', 'green');
     }
+
 }

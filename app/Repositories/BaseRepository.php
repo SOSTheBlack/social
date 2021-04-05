@@ -14,6 +14,7 @@ use Prettus\Repository\Exceptions\RepositoryException;
  *
  * @package App\Repositories
  *
+ * @method findOrFail($id, $columns = ['*'])
  * @method  firstWhereOrFail(array $where, array $columns = ['*'])
  * @method  createOrFail(array $attributes)
  *

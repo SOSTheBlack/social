@@ -50,7 +50,7 @@ class VerificationController extends Controller
         return $request->user()->hasVerifiedEmail()
             ? redirect($this->redirectPath())
             : view('auth.verify', [
-                'pageConfigs' => $pageConfigs, 'pageTitle' => trans('locale.auth.verify.page-title'),
+                'pageConfigs' => $pageConfigs, 'pageTitle' => __('Confirmação da conta'),
             ]);
     }
 }

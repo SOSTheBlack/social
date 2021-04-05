@@ -26,8 +26,8 @@
                 
                 <div class="row">
                     <div class="input-field col s12">
-                        <h5 class="ml-4">@lang('locale.auth.forgot-password.form.title')</h5>
-                        <p class="ml-4">@lang('locale.auth.forgot-password.form.subtitle')</p>
+                        <h5 class="ml-4">{{ __('Perdeu sua senha?') }}</h5>
+                        <p class="ml-4">{{ __('Preencha abaixo o seu e-mail de cadastro para proceguir.') }}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -36,7 +36,7 @@
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                name="email"
                                value="{{ old('email') }}" required autocomplete="email" autofocus>
-                        <label for="email" class="center-align">@lang('locale.auth.forgot-password.form.inputs.email')</label>
+                        <label for="email" class="center-align">{{ __('E-mail') }}</label>
                         @error('email')
                         <span class="red-text ml-10" role="alert">
             <strong>{{ $message }}</strong>
@@ -48,16 +48,16 @@
                     <div class="input-field col s12">
                         <button type="submit"
                                 class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12 mb-1">
-                            @lang('locale.auth.forgot-password.form.buttons.submit')
+                            {{ __('Recuperar conta') }}
                         </button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6 m6 l6">
-                        <p class="margin medium-small"><a href="{{ route('login')}}">@lang('locale.auth.forgot-password.login')</a></p>
+                        <p class="margin medium-small"><a href="{{ route('login')}}">{{ __('Entrar') }}</a></p>
                     </div>
                     <div class="input-field col s6 m6 l6">
-                        <p class="margin right-align medium-small"><a href="{{route('register')}}">@lang('locale.auth.forgot-password.register')</a></p>
+                        <p class="margin right-align medium-small"><a href="{{route('register')}}">{{ __('Cadastrar-se') }}</a></p>
                     </div>
                 </div>
             </form>

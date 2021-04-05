@@ -58,7 +58,7 @@ class RegisterController extends Controller
             '/auth/register',
             [
                 'pageConfigs' => $pageConfigs,
-                'pageTitle' => trans('locale.auth.register.page-title')
+                'pageTitle' => __('Cadastre-se')
             ]
         );
     }

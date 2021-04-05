@@ -50,7 +50,7 @@ class LoginController extends Controller
 
         return view('auth.login', [
             'pageConfigs' => $pageConfigs,
-            'pageTitle' => trans('locale.auth.login.page-title')
+            'pageTitle' => __('Entrar')
         ]);
     }
 

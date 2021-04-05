@@ -13,6 +13,7 @@ use League\Fractal\TransformerAbstract;
  */
 class EnterpriseTransformer extends TransformerAbstract
 {
+
     /**
      * Transform the Enterprise entity.
      *
@@ -27,8 +28,7 @@ class EnterpriseTransformer extends TransformerAbstract
         'updated_at' => "\Illuminate\Support\Carbon|null",
         'deleted_at' => "\Illuminate\Support\Carbon|null"
     ])]
-    public function transform(Enterprise $enterprise): array
-    {
+    public function transform(Enterprise $enterprise): array {
         return [
             'id' => $enterprise->id,
             'name' => $enterprise->name,

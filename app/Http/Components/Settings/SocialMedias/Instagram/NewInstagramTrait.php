@@ -6,7 +6,6 @@ use App\SocialMedias\Instagram\Exceptions\AuthenticationException;
 use App\SocialMedias\Instagram\Instagram;
 use Illuminate\Http\Client\Response;
 use JetBrains\PhpStorm\ArrayShape;
-
 use Prettus\Validator\Exceptions\ValidatorException;
 use Throwable;
 
@@ -19,6 +18,7 @@ use function App\SocialMedias\Instagram\generateCsrfToken;
  */
 trait NewInstagramTrait
 {
+
     /**
      * @return Response
      *
@@ -36,7 +36,7 @@ trait NewInstagramTrait
                 $isAuthenticationException ? $exception->getMessage() : __('Erro inesperado. Tente novamente!')
             );
 
-            throw new AuthenticationException($exception->getMessage(), previous: $exception);
+            throw new AuthenticationException(message: $exception->getMessage(), previous: $exception);
         }
     }
 
@@ -76,7 +76,7 @@ trait NewInstagramTrait
 
         $newSocialMediaAccount = [
             'social_media_id' => $socialMedia['id'],
-            'enterprise_id' => app('auth')->user()->enterprise->id,
+            'enterprise_id' => $this->enterpriseId,
             'ref_id' => $body->userId,
             'username' => $this->username,
             'settings' => [
@@ -99,8 +99,9 @@ trait NewInstagramTrait
         'x-csrftoken' => "mixed|string",
         'user-agent' => "string"
     ])]
-    protected function structureHeaders(array $headers): array
-    {
+    protected function structureHeaders(
+        array $headers
+    ): array {
         $cookies = collect($headers);
         $cookieString = '';
 
@@ -120,5 +121,16 @@ trait NewInstagramTrait
         ];
 
         return $headers;
+    }
+
+    protected function defineEnterprise()
+    {
+        $user = user(['enterprises']);
+
+        $this->enterprises = $user['enterprises'];
+
+        if (count($this->enterprises) === 1) {
+            $this->enterpriseId = end($this->enterprises)['id'];
+        }
     }
 }

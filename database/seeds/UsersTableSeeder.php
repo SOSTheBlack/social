@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = UserFactory::new(['name' => 'Jean C. Garcia', 'email' => 'jeancesargarcia@gmail.com'])->create();
+        $user = UserFactory::new()->create(['name' => 'Admin admin', 'email' => 'admin@admin.com']);
         $user->givePermissionTo('super-admin');
     }
 }

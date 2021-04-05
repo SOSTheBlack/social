@@ -1,16 +1,20 @@
 <?php
 
 use App\Entities\User;
-use Illuminate\Contracts\Auth\Authenticatable;
+use App\Repositories\Contracts\UserRepository;
 
 /**
- * @return Authenticatable|User
+ * @param  array  $with
+ * @return array
  *
  * @extends \App\Entities\User
  */
-function user(): Authenticatable|User
+function user(array $with = []): array
 {
-    return auth()->user();
+    /** @var User $user */
+    $user = auth()->user() ?? throw new RuntimeException('user not authenticated.');
+
+    return app(UserRepository::class)->with($with)->findOrFail($user->id);
 }
 
 /**

@@ -62,9 +62,13 @@ class UserCreatedObserver
         }
     }
 
+    /**
+     * Create a new enterprise for new user
+     *
+     * @return void
+     */
     public function createEnterprise(): void
     {
-        dump(app(EnterpriseRepository::class)
-            ->createByUser(user: $this->user->toArray()));
+        app(EnterpriseRepository::class)->createByUser(user: $this->user->toArray());
     }
 }

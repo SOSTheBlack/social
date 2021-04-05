@@ -1,3 +1,5 @@
+@section('page-style')
+@endsection
 <div class="row">
     <div class="col offset-m3 s12 m6">
         <div id="icon-prefixes" class="card card-tabs">
@@ -19,17 +21,29 @@
                     </blockquote>
                     <div class="row">
                         <form wire:submit.prevent="submit" class="col s12" autocomplete="off">
+                            @if(! $enterpriseId)
+                                <div class="row input-field col s12">
+                                    <select wire:model="enterpriseId" name="enterpriseId" id="enterpriseId" class="enterprisess browser-default">
+                                        <option value="" selected>Selecionar Empresa</option>
+                                        @foreach($enterprises as $enterprise)
+                                            <option value="{{ $enterprise['id'] }}">{{ $enterprise['name'] }}</option>
+                                        @endforeach
+                                        
+                                    </select>
+                                </div>
+                            @endif
                             <div class="row input-field col s12">
                                 <i class="material-icons prefix">account_circle</i>
                                 <input wire:model="username" id="username"
-                                       type="text" min="3" class="" autocomplete="off">
+                                       type="text" min="3" class="username" autocomplete="off">
                                 @error('username')
                                 <div class="error">{{ $message }}</div> @enderror
                                 <label for="username" class="active">{{ __('Usuário') }}</label>
                             </div>
                             <div class="row input-field col s12">
                                 <i class="material-icons prefix">vpn_key</i>
-                                <input wire:model="password" id="password" type="password" class="" autocomplete="off">
+                                <input wire:model="password" id="password" type="password" class="password"
+                                       autocomplete="off">
                                 @error('password')
                                 <div class="error ">{{ $message }}</div> @enderror
                                 <label for="password" class="active">{{ __('Senha') }}</label>
@@ -47,22 +61,5 @@
 
 @section('page-script')
     <script src="{{asset('js/materialize.js')}}"></script>
-    <script>
-        // Materialize.updateTextFields();
-        $(document).ready(function () {
-            var input_selector = 'input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=search], input[type=date], input[type=time], textarea';
-            console.log(input_selector);
-            $(input_selector).each(function (element, index) {
-                console.log(element, index);
-                var $this = $(this);
-                if (index.value.length > 0 || $(index).is(':focus') || index.autofocus || $this.attr('placeholder') !== null) {
-                    $this.siblings('label').addClass('active');
-                } else if (index.validity) {
-                    $this.siblings('label').toggleClass('active', index.validity.badInput === true);
-                } else {
-                    $this.siblings('label').removeClass('active');
-                }
-            });
-        });
-    </script>
+    <script src="{{ asset('js/scripts/form-elements.js') }}"></script>
 @endsection

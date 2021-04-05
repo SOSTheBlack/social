@@ -34,14 +34,14 @@ use Spatie\Permission\Traits\HasRoles;
  * @property Carbon|null $deleted_at
  * @property-read Collection|Client[] $clients
  * @property-read int|null $clients_count
- * @property-read Collection|\App\Entities\Enterprise[] $enterprises
+ * @property-read Collection|Enterprise[] $enterprises
  * @property-read int|null $enterprises_count
  * @property-read DatabaseNotificationCollection|DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
- * @property-read Collection|\App\Entities\Permission[] $permissions
+ * @property-read Collection|Permission[] $permissions
  * @property-read int|null $permissions_count
- * @property-read \App\Entities\Profile|null $profile
- * @property-read Collection|\App\Entities\Role[] $roles
+ * @property-read Profile|null $profile
+ * @property-read Collection|Role[] $roles
  * @property-read int|null $roles_count
  * @property-read Collection|Token[] $tokens
  * @property-read int|null $tokens_count
@@ -128,7 +128,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
         self::creating(
             function ($model) {
-                $model->id = (string) Uuid::uuid4();
+                $model->id = (string)Uuid::uuid4();
             }
         );
     }
