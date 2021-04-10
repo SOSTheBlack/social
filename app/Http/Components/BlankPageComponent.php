@@ -2,17 +2,22 @@
 
 namespace App\Http\Components;
 
+use App\Helpers\Http\Components\BuildComponent;
 use Illuminate\Contracts\View\View;
+use Livewire\Component;
 
 /**
  * Class BlankPage
  *
  * @package App\Http\Components
  */
-final class BlankPageComponent extends BaseComponent
+final class BlankPageComponent extends Component
 {
-    public $foo;
+    use BuildComponent;
 
+    /**
+     * @const string
+     */
     private const PAGE_TITLE = 'Página de Exemplo';
 
     /**
@@ -22,9 +27,7 @@ final class BlankPageComponent extends BaseComponent
      */
     public function mount(): void
     {
-        $this->setPageTitle(Self::PAGE_TITLE)->pushBreadcrumbs(self::PAGE_TITLE);
-
-        parent::mount();
+        $this->setPageTitle(self::PAGE_TITLE)->setBreadcrumbs([['name' => self::PAGE_TITLE]]);
     }
 
     /**

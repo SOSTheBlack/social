@@ -13,7 +13,7 @@ return [
         'isMenuDark' => true, // True for dark, false for light and null for default(blank for default sidenav-color according to theme)
         'isMenuCollapsed' => false, // options:True or false  Warning:this option is not applicable for horizontal
         'activeMenuType' => 'sidenav-active-square', //Options:default("") sidenav-active-square, sidenav-active-rounded, sidenav-active-fullwidth  Warning:this option is not applicable for horizontal
-        'isFooterDark' => true, //True for dark, flase for light and null for default
+        'isFooterDark' => null, //True for dark, flase for light and null for default
         'isFooterFixed' => false, //options:true or false
         'templateTitle' => env('APP_NAME'), //template Title can be changes default('Materialize)
         'isCustomizer' => true, //If True customizer available or false its not available

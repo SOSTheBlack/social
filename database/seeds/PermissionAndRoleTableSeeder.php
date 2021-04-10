@@ -5,7 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 
 /**
- * Class PermissionAndRoleTableSeeder
+ * Class PermissionAndRoleTableSeeder.
+ *
  * @package Database\Seeders
  */
 class PermissionAndRoleTableSeeder extends Seeder
@@ -15,7 +16,7 @@ class PermissionAndRoleTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         //
     }

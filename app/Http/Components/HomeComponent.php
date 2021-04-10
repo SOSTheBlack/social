@@ -2,15 +2,20 @@
 
 namespace App\Http\Components;
 
+use App\Helpers\Http\Components\BuildComponent;
 use Illuminate\Contracts\View\View;
+
+use Livewire\Component;
 
 /**
  * Class Dashboard
  *
  * @package App\Http\Components
  */
-final class HomeComponent extends BaseComponent
+final class HomeComponent extends Component
 {
+    use BuildComponent;
+
     /**
      * Title of Page.
      *
@@ -23,9 +28,7 @@ final class HomeComponent extends BaseComponent
      */
     public function mount(): void
     {
-        $this->pushBreadcrumbs(self::PAGE_TITLE)->setPageTitle(self::PAGE_TITLE);
-
-        parent::mount();
+        $this->setBreadcrumbs([['name' => self::PAGE_TITLE]])->setPageTitle(self::PAGE_TITLE);
     }
 
     /**

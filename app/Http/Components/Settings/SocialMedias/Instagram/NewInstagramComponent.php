@@ -2,9 +2,11 @@
 
 namespace App\Http\Components\Settings\SocialMedias\Instagram;
 
-use App\Http\Components\Settings\SocialMedias\SocialMediaComponent;
+use App\Helpers\Http\Components\BuildComponent;
+use App\Http\Components\Settings\SocialMedias\IndexSocialMediaComponent;
 use Illuminate\Contracts\View\View;
 use Illuminate\Validation\ValidationException;
+use Livewire\Component;
 use Throwable;
 
 /**
@@ -12,9 +14,10 @@ use Throwable;
  *
  * @package App\Http\Components\Dashboard\Settings\SocialMedias\Instagram
  */
-class NewInstagramComponent extends SocialMediaComponent
+class NewInstagramComponent extends Component
 {
     use NewInstagramTrait;
+    use BuildComponent;
 
     /**
      * Title of Page.
@@ -68,9 +71,17 @@ class NewInstagramComponent extends SocialMediaComponent
      */
     public function mount(): void
     {
-        $this->setPageTitle(self::PAGE_TITLE)->pushBreadcrumbs(self::PAGE_TITLE);
-
-        parent::mount();
+        $this->setPageTitle(self::PAGE_TITLE);
+        $this->setBreadcrumbs([
+            [
+                'name' => 'Mídias Sociais',
+                'link' => route('settings.social_medias.list')
+            ],
+            [
+                'name' => 'Novo Instagram',
+                'link' => route('settings.social_medias.instagram.new')
+            ]
+        ]);
     }
 
     /**

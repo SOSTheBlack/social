@@ -120,7 +120,7 @@
                             @foreach ($breadcrumbs as $breadcrumb)
                                 <li class="breadcrumb-item {{ !isset($breadcrumb['link']) ? 'active' :''}}">
                                     @if(isset($breadcrumb['link']) && ! empty($breadcrumb['link']))
-                                        <a href="{{route($breadcrumb['link'])}}">
+                                        <a href="{{ $breadcrumb['link']}}">
                                             @endif{{__($breadcrumb['name'])}}
                                             @if(isset($breadcrumb['link']))</a>
                                     @endif

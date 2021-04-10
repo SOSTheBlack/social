@@ -33,7 +33,7 @@
       "submenu": [
         {
           "url": "/",
-          "route": "settings.social_medias.instagram.new",
+          "route": "settings.social_medias.list",
           "name": "Mídias Sociais",
           "i18n": "settings_applications",
           "slug": "dashboard-modern"

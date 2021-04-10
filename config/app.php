@@ -176,7 +176,6 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\MenuServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
-        App\Providers\RepositoryServiceProvider::class,
     ],
 
     /*

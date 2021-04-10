@@ -2,19 +2,22 @@
 
 use App\Entities\User;
 use App\Repositories\Contracts\UserRepository;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /**
  * @param  array  $with
- * @return array
  *
- * @extends \App\Entities\User
+ * @return User|Model
+ *
+ * @throws ModelNotFoundException
  */
-function user(array $with = []): array
+function user(array $with = []): User|Model
 {
     /** @var User $user */
     $user = auth()->user() ?? throw new RuntimeException('user not authenticated.');
 
-    return app(UserRepository::class)->with($with)->findOrFail($user->id);
+    return User::with($with)->findOrFail($user->id);
 }
 
 /**

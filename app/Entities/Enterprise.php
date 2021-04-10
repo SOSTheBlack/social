@@ -4,7 +4,9 @@ namespace App\Entities;
 
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Prettus\Repository\Contracts\Transformable;
@@ -20,7 +22,7 @@ use Prettus\Repository\Traits\TransformableTrait;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
- * @property-read \Illuminate\Database\Eloquent\Collection|Enterprise[] $users
+ * @property-read Collection|Enterprise[] $users
  * @property-read int|null $users_count
  * @method static Builder|Enterprise newModelQuery()
  * @method static Builder|Enterprise newQuery()
@@ -46,7 +48,7 @@ class Enterprise extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['name'];
 
     /**
      * Define a many-to-many relationship
@@ -56,5 +58,15 @@ class Enterprise extends Model implements Transformable
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class)->using(EnterpriseUser::class);
+    }
+
+    /**
+     * Define a one-to-many relationship.
+     *
+     * @return HasMany
+     */
+    public function social_media_accounts(): HasMany
+    {
+        return $this->hasMany(SocialMediaAccount::class);
     }
 }

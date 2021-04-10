@@ -48,7 +48,7 @@
 
 
   {{-- footer  --}}
-  @include('panels.footer')
+{{--  @include('panels.footer')--}}
   {{-- vendor and page scripts --}}
   @include('panels.scripts')
 </body>
