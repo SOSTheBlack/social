@@ -2,6 +2,9 @@
 
 namespace App\Http\Components\Settings\SocialMedias\Instagram;
 
+use App\Entities\Enterprise;
+use App\Entities\SocialMedia;
+use App\Entities\SocialMediaAccount;
 use App\SocialMedias\Instagram\Exceptions\AuthenticationException;
 use App\SocialMedias\Instagram\Instagram;
 use Illuminate\Http\Client\Response;
@@ -31,9 +34,11 @@ trait NewInstagramTrait
         } catch (Throwable $exception) {
             $isAuthenticationException = $exception instanceof AuthenticationException;
 
+            $message = $exception->getMessage() !== 'Please wait a few minutes before you try again.' ? $exception->getMessage() : 'Aguarde alguns minutos antes de tentar novamente.';
+
             $this->addError(
                 'error',
-                $isAuthenticationException ? $exception->getMessage() : __('Erro inesperado. Tente novamente!')
+                $isAuthenticationException ? $message : __('Erro inesperado. Tente novamente!')
             );
 
             throw new AuthenticationException(message: $exception->getMessage(), previous: $exception);
@@ -43,11 +48,11 @@ trait NewInstagramTrait
     /**
      * @param  Response  $responseLogin
      *
-     * @return array
+     * @return SocialMediaAccount
      *
      * @throws AuthenticationException
      */
-    protected function createAccount(Response $responseLogin): array
+    protected function createAccount(Response $responseLogin): SocialMediaAccount
     {
         try {
             return $this->createSocialMediaAccount($responseLogin);
@@ -65,17 +70,17 @@ trait NewInstagramTrait
     /**
      * @param  Response  $responseLogin
      *
-     * @return array
+     * @return SocialMediaAccount
      */
-    private function createSocialMediaAccount(Response $responseLogin): array
+    private function createSocialMediaAccount(Response $responseLogin): SocialMediaAccount
     {
         $body = $responseLogin->object();
         $headers = $this->structureHeaders($responseLogin->cookies()->toArray());
 
-        $socialMedia = $this->socialMediaRepository->firstWhereOrFail(['slug' => Instagram::SLUG], ['id']);
+        $socialMedia = SocialMedia::where(['slug' => Instagram::SLUG])->firstOrFail(['id']);
 
         $newSocialMediaAccount = [
-            'social_media_id' => $socialMedia['id'],
+            'social_media_id' => $socialMedia->id,
             'enterprise_id' => $this->enterpriseId,
             'ref_id' => $body->userId,
             'username' => $this->username,
@@ -85,7 +90,7 @@ trait NewInstagramTrait
             ]
         ];
 
-        return $this->socialMediaAccountRepository->createOrFail($newSocialMediaAccount);
+        return SocialMediaAccount::forceCreate($newSocialMediaAccount);
     }
 
     /**
@@ -127,10 +132,13 @@ trait NewInstagramTrait
     {
         $user = user(['enterprises']);
 
-        $this->enterprises = $user['enterprises'];
+        $this->enterprises = $user->enterprises;
 
         if (count($this->enterprises) === 1) {
-            $this->enterpriseId = end($this->enterprises)['id'];
+            /** @var Enterprise $enterprise */
+            $enterprise = $this->enterprises->first();
+
+            $this->enterpriseId = $enterprise->id;
         }
     }
 }

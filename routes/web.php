@@ -11,14 +11,6 @@ use App\Repositories\Contracts\EnterpriseRepository;
 use Illuminate\Support\Facades\Http;
 use Phpfastcache\Helper\Psr16Adapter;
 
-App::setLocale('pt_BR');
-
-Route::get('test', function () {
-    $enterprise = Enterprise::firstOrFail();
-    $enterprise2 = app(EnterpriseRepository::class)->with(['social_media_accounts'])->find('2b38a81f-ce40-4824-8f01-670fcfa70393');
-    dd($enterprise->social_media_accounts, user(['enterprises']), $enterprise2);
-});
-
 Route::get('/test-ok', function () {
     $csrftoken = md5(uniqid());
     $headers = [

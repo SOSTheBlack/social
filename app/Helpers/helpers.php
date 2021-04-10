@@ -1,18 +1,19 @@
 <?php
 
 use App\Entities\User;
-use App\Repositories\Contracts\UserRepository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /**
  * @param  array  $with
  *
- * @return User|Model
+ * @return User
  *
  * @throws ModelNotFoundException
+ *
+ * @noinspection PhpIncompatibleReturnTypeInspection
  */
-function user(array $with = []): User|Model
+function user(array $with = []): User
 {
     /** @var User $user */
     $user = auth()->user() ?? throw new RuntimeException('user not authenticated.');

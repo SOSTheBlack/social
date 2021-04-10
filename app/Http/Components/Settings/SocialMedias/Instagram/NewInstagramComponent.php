@@ -3,8 +3,8 @@
 namespace App\Http\Components\Settings\SocialMedias\Instagram;
 
 use App\Helpers\Http\Components\BuildComponent;
-use App\Http\Components\Settings\SocialMedias\IndexSocialMediaComponent;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 use Throwable;
@@ -37,9 +37,9 @@ class NewInstagramComponent extends Component
     public string $password = '';
 
     /**
-     * @var mixed
+     * @var Collection
      */
-    public array $enterprises;
+    public Collection $enterprises;
 
     /**
      * @var mixed
@@ -103,12 +103,20 @@ class NewInstagramComponent extends Component
 
         try {
             $responseLogin = $this->singInInstagram();
-            $this->createAccount($responseLogin);
-        } catch (Throwable $exception) {
-            return;
-        }
 
-        alertSession('Instagram sincronizado com sucesso!!!', 'green');
+            $socialMediaAccount = $this->createAccount($responseLogin);
+
+            alertSession('Instagram sincronizado com sucesso!!!', 'green');
+
+            $this->redirectRoute(
+                'settings.social_medias.instagram.edit',
+                ['socialMediaAccount' => $socialMediaAccount->id]
+            );
+        } catch (Throwable $exception) {
+            #TODO: add Sentry.
+
+            dd($exception);
+        }
     }
 
 }

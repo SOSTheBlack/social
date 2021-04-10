@@ -37,8 +37,6 @@ class RouteServiceProvider extends ServiceProvider
     public function boot(): void
     {
         parent::boot();
-
-        Route::bind('socialMediaAccount', fn (string $uuid) => app(SocialMediaAccountRepository::class)->findOrFail($uuid));
     }
 
     /**

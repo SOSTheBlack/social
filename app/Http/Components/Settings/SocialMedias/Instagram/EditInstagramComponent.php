@@ -2,6 +2,7 @@
 
 namespace App\Http\Components\Settings\SocialMedias\Instagram;
 
+use App\Entities\SocialMediaAccount;
 use App\Helpers\Http\Components\BuildComponent;
 use App\Helpers\Http\Components\ComponentInterface;
 use Illuminate\Contracts\View\View;
@@ -36,12 +37,12 @@ class EditInstagramComponent extends Component implements ComponentInterface
      *
      * @param $socialMediaAccount
      */
-    public function mount($socialMediaAccount): void
+    public function mount(SocialMediaAccount $socialMediaAccount): void
     {
         $this->setPageTitle(self::PAGE_TITLE);
         $this->setBreadcrumbs([
-            ['name' => 'Mídias Sociais', 'link' => route('settings.social_medias.instagram.edit', [$socialMediaAccount['id']])],
-            ['name' => 'Configuração', 'link' => route('settings.social_medias.instagram.edit', [$socialMediaAccount['id']])]
+            ['name' => 'Mídias Sociais', 'link' => route('settings.social_medias.instagram.edit', [$socialMediaAccount->id])],
+            ['name' => 'Configuração', 'link' => route('settings.social_medias.instagram.edit', [$socialMediaAccount->id])]
         ]);
     }
 }
