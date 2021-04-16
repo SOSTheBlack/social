@@ -69,4 +69,17 @@ class Enterprise extends Model implements Transformable
     {
         return $this->hasMany(SocialMediaAccount::class);
     }
+
+    public static function listSocialMediaAccounts()
+    {
+        $socialMediaAccounts = collect();
+
+        /** It brings together in a single list the integrated social networks of all companies that the user is allowed. */
+        user(['enterprises.social_media_accounts'])->enterprises
+            ->pluck('social_media_accounts.*', 'id')
+            ->filter(fn (array $listAccountsOfEnterprise) => ! empty($listAccountsOfEnterprise))
+            ->each(fn (array $listAccountsOfEnterprise) => $socialMediaAccounts->push(... $listAccountsOfEnterprise));
+
+        return $socialMediaAccounts;
+    }
 }

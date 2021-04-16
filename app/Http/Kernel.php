@@ -2,7 +2,9 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\EmptySocialMediaAccounts;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use League\CommonMark\Inline\Renderer\EmphasisRenderer;
 
 class Kernel extends HttpKernel
 {

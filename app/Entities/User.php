@@ -85,6 +85,7 @@ class User extends Authenticatable implements MustVerifyEmail
             'name',
             'email',
             'password',
+            'hub_uuid'
         ];
 
     /**

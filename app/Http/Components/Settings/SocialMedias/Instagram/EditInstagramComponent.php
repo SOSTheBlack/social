@@ -5,7 +5,9 @@ namespace App\Http\Components\Settings\SocialMedias\Instagram;
 use App\Entities\SocialMediaAccount;
 use App\Helpers\Http\Components\BuildComponent;
 use App\Helpers\Http\Components\ComponentInterface;
+use App\SocialMedias\Instagram\Instagram;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 /**
@@ -22,12 +24,12 @@ class EditInstagramComponent extends Component implements ComponentInterface
      *
      * @const string
      */
-    protected const PAGE_TITLE = ' Instagram';
+    protected const PAGE_TITLE = Instagram::NAME;
 
     /**
      * @return View
      */
-    public function render()
+    public function render(): View
     {
         return view('components.settings.social_medias.instagram.edit-component');
     }
@@ -39,7 +41,7 @@ class EditInstagramComponent extends Component implements ComponentInterface
      */
     public function mount(SocialMediaAccount $socialMediaAccount): void
     {
-        $this->setPageTitle(self::PAGE_TITLE);
+        $this->setPageTitle(vsprintf('%s - %s', [Str::upper($socialMediaAccount->username), self::PAGE_TITLE]));
         $this->setBreadcrumbs([
             ['name' => 'Mídias Sociais', 'link' => route('settings.social_medias.instagram.edit', [$socialMediaAccount->id])],
             ['name' => 'Configuração', 'link' => route('settings.social_medias.instagram.edit', [$socialMediaAccount->id])]

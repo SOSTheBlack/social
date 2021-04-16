@@ -7,6 +7,7 @@ use App\Http\Components\Settings\SocialMedias\Instagram\EditInstagramComponent;
 use App\Http\Components\Settings\SocialMedias\Instagram\NewInstagramComponent;
 use App\Http\Components\Settings\SocialMedias\IndexSocialMediaComponent;
 use App\Http\Controllers\LanguageController;
+use App\Http\Middleware\EmptySocialMediaAccounts;
 use App\Repositories\Contracts\EnterpriseRepository;
 use Illuminate\Support\Facades\Http;
 use Phpfastcache\Helper\Psr16Adapter;
@@ -57,7 +58,11 @@ Route::get('lang/{locale}', [LanguageController::class, 'swap']);
 Route::group(['middleware' => 'guest'], function () {
 });
 
-Route::group(['middleware' => 'auth'], function () {
+    Route::middleware('hub.auth')->get('/test', function () {
+        return auth()->user()->toArray();
+    });
+
+Route::group(['middleware' => ['auth', EmptySocialMediaAccounts::class]], function () {
     Route::get('/')->uses(HomeComponent::class)->name('home');
 
     Route::get('/settings/social_medias/')->uses(IndexSocialMediaComponent::class)->name('settings.social_medias.list');

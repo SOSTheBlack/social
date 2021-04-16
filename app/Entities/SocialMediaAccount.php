@@ -2,8 +2,11 @@
 
 namespace App\Entities;
 
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Eloquent;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Carbon;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
@@ -16,13 +19,13 @@ use Prettus\Repository\Traits\TransformableTrait;
  * @property int $ref_id
  * @property string|null $username
  * @property object $settings
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \App\Entities\Enterprise|null $enterprise
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+ * @property-read Enterprise|null $enterprise
  * @method static \Illuminate\Database\Eloquent\Builder|SocialMediaAccount newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SocialMediaAccount newQuery()
- * @method static \Illuminate\Database\Query\Builder|SocialMediaAccount onlyTrashed()
+ * @method static Builder|SocialMediaAccount onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|SocialMediaAccount query()
  * @method static \Illuminate\Database\Eloquent\Builder|SocialMediaAccount whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SocialMediaAccount whereDeletedAt($value)
@@ -33,9 +36,9 @@ use Prettus\Repository\Traits\TransformableTrait;
  * @method static \Illuminate\Database\Eloquent\Builder|SocialMediaAccount whereSocialMediaId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SocialMediaAccount whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SocialMediaAccount whereUsername($value)
- * @method static \Illuminate\Database\Query\Builder|SocialMediaAccount withTrashed()
- * @method static \Illuminate\Database\Query\Builder|SocialMediaAccount withoutTrashed()
- * @mixin \Eloquent
+ * @method static Builder|SocialMediaAccount withTrashed()
+ * @method static Builder|SocialMediaAccount withoutTrashed()
+ * @mixin Eloquent
  */
 class SocialMediaAccount extends Model implements Transformable
 {
@@ -51,7 +54,8 @@ class SocialMediaAccount extends Model implements Transformable
         'social_media_id',
         'ref_id',
         'username',
-        'settings'
+        'settings',
+        'synced'
     ];
 
     /**
@@ -67,10 +71,16 @@ class SocialMediaAccount extends Model implements Transformable
     /**
      * Define a one-to-one relationship.
      *
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function enterprise(): HasOne
+    public function enterprise(): BelongsTo
     {
-        return $this->hasOne(Enterprise::class);
+        return $this->belongsTo(Enterprise::class);
     }
+
+    public function social_media()
+    {
+        return $this->belongsTo(SocialMedia::class);
+    }
+
 }

@@ -87,7 +87,8 @@ trait NewInstagramTrait
             'settings' => [
                 'headers' => $headers,
                 'password' => encrypt($this->password)
-            ]
+            ],
+            'synced' => 1
         ];
 
         return SocialMediaAccount::forceCreate($newSocialMediaAccount);

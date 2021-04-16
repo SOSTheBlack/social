@@ -15525,7 +15525,7 @@ namespace  {
             public static function updateOrCreate($attributes, $values = [])
             {
                                 /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->updateOrCreate($attributes, $values);
+                                return $instance->updateOrCree($attributes, $values);
             }
              
                 /**

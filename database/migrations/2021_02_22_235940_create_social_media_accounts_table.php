@@ -22,6 +22,7 @@ class CreateSocialMediaAccountsTable extends Migration
             $table->bigInteger('ref_id')->constrained();
             $table->string('username')->nullable();
             $table->json('settings');
+            $table->boolean('synced');
 
             $table->timestamps();
             $table->softDeletes();

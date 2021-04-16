@@ -1,67 +1,56 @@
-<div class="section">
-    <div class="card">
-        <div class="card-content">
-            <p class="caption mb-0">Aqui se encontra a lista de todas as suas integrações conosco.</p>
-        </div>
-    </div>
+<?php
 
-    <div class="row">
-        <div class="col s12 m12 l12">
-            <div id="responsive-table" class="card card card-default scrollspy">
-                <div class="card-content">
-                    <h4 class="card-title">Mídias Sociais Integradas</h4>
-                    <p class="mb-2">Add <code class="  language-markup">class="responsive-table"</code> to the table tag
-                        to make
-                        the table
-                        horizontally scrollable on smaller screen widths.</p>
-                    <div class="row">
-                        <div class="col s12">
-                        </div>
-                        <div class="col s12">
-                            <table class="responsive-table">
-                                <thead>
-                                <tr>
-                                    <th data-field="id">Name</th>
-                                    <th data-field="name">Item Name</th>
-                                    <th data-field="price">Item Price</th>
-                                    <th data-field="total">Total</th>
-                                    <th data-field="status">Status</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Alvin</td>
-                                    <td>Eclair</td>
-                                    <td>$0.87</td>
-                                    <td>$1.87</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <td>Alan</td>
-                                    <td>Jellybean</td>
-                                    <td>$3.76</td>
-                                    <td>$10.87</td>
-                                    <td>No</td>
-                                </tr>
-                                <tr>
-                                    <td>Jonathan</td>
-                                    <td>Lollipop</td>
-                                    <td>$7.00</td>
-                                    <td>$12.87</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <td>Shannon</td>
-                                    <td>KitKat</td>
-                                    <td>$9.99</td>
-                                    <td>$14.87</td>
-                                    <td>No</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+/** @var App\Entities\SocialMediaAccount $socialMediaAccount */
+
+?>
+
+
+
+
+<div class="section">
+    <div id="responsive-table" class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row right-align">
+          <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+  <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+  <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+  </ul>
+    </div>
+            <div class="row">
+                <table class="responsive-table">
+                    <thead>
+                    <tr>
+                        <th data-field="name">{{ __('Usuário') }}</th>
+                        <th data-field="status">{{ __('Seguidores') }}</th>
+                        <th data-field="status">{{ __('Seguindo') }}</th>
+                        <th data-field="status">{{ __('Publicações') }}</th>
+                        <th data-field="status">{{ __('Ações') }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+
+                    @foreach($socialMediaAccounts->all() as $socialMediaAccount)
+                        <tr>
+                            <td><i class="fab fa-{{ $socialMediaAccount->social_media->slug }} fa-2x"></i><a href="https://www.instagram.com/{{ $socialMediaAccount->username }}" target="_blank"><span class="text uppercase">{{ $socialMediaAccount->username }}</span></a></td>
+                            <td>999.999.99</td>
+                            <td>999.999.99</td>
+                            <td>999.999.99</td>
+                            <td>
+                                <a href="{{ route('settings.social_medias.instagram.edit', [$socialMediaAccount->id]) }}">
+                                    <i class="fa fa-edit fa-lg"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
