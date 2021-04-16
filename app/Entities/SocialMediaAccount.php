@@ -65,7 +65,8 @@ class SocialMediaAccount extends Model implements Transformable
      */
     protected $casts = [
         'ref_id' => 'int',
-        'settings' => 'object'
+        'settings' => 'object',
+        'data' => 'object'
     ];
 
     /**

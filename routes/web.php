@@ -58,9 +58,7 @@ Route::get('lang/{locale}', [LanguageController::class, 'swap']);
 Route::group(['middleware' => 'guest'], function () {
 });
 
-    Route::middleware('hub.auth')->get('/test', function () {
-        return auth()->user()->toArray();
-    });
+Route::get('/test')->uses(\App\Http\Controllers\TestController::class);
 
 Route::group(['middleware' => ['auth', EmptySocialMediaAccounts::class]], function () {
     Route::get('/')->uses(HomeComponent::class)->name('home');

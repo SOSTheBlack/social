@@ -3,6 +3,7 @@
 namespace App\Http\Components\Settings\SocialMedias\Instagram;
 
 use App\Helpers\Http\Components\BuildComponent;
+use App\SocialMedias\Instagram\Instagram;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Validation\ValidationException;
@@ -105,8 +106,20 @@ class NewInstagramComponent extends Component
             $responseLogin = $this->singInInstagram();
 
             $socialMediaAccount = $this->createAccount($responseLogin);
+            $data = $socialMediaAccount->data;
 
-            alertSession('Instagram sincronizado com sucesso!!!', 'green');
+            if (empty($data)) {
+                $data = new \stdClass();
+            }
+
+            $instagram = new Instagram($socialMediaAccount);
+            $userInfo = $instagram->users()->me()->object();
+            $data->user = $userInfo->user;
+
+            $socialMediaAccount->data = $data;
+            $socialMediaAccount->saveOrFail();
+
+            alert_session('Instagram sincronizado com sucesso!!!', 'green');
 
             $this->redirectRoute(
                 'settings.social_medias.instagram.edit',

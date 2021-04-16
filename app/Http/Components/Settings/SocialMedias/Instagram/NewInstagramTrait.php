@@ -30,7 +30,7 @@ trait NewInstagramTrait
     protected function singInInstagram(): Response
     {
         try {
-            return (new Instagram())->auth()->login($this->username, $this->password);
+            return (new Instagram)->auth()->login($this->username, $this->password);
         } catch (Throwable $exception) {
             $isAuthenticationException = $exception instanceof AuthenticationException;
 

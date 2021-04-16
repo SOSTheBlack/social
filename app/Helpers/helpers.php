@@ -27,15 +27,31 @@ function user(array $with = []): User
  *
  * @return void
  */
-function alertSession(string|array $message, string $color = 'cyan', bool $exit = false): void
+function alert_session(string|array $message, string $color = 'cyan', bool $exit = false): void
 {
     session()->flash('alert', ['color' => $color, 'message' => $message, 'exit' => $exit]);
 }
 
-/**
- * @return string
- */
-function separator(): string
-{
-    return ' ';
+if (! function_exists('to_array')) {
+    /**
+     * @param  stdClass|array  $fooBar
+     *
+     * @return array
+     */
+    function to_array(stdClass|array $fooBar): array
+    {
+        return json_decode(json_encode($fooBar), true);
+    }
+}
+
+if (! function_exists('to_object')) {
+    /**
+     * @param  stdClass|array  $fooBar
+     *
+     * @return array
+     */
+    function to_object(stdClass|array $fooBar): array
+    {
+        return json_decode(json_encode($fooBar), true);
+    }
 }

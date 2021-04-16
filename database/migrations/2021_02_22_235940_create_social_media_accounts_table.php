@@ -21,6 +21,7 @@ class CreateSocialMediaAccountsTable extends Migration
             $table->foreignUuid('social_media_id')->constrained('social_medias');
             $table->bigInteger('ref_id')->constrained();
             $table->string('username')->nullable();
+            $table->json('data')->nullable();
             $table->json('settings');
             $table->boolean('synced');
 
